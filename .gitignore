@@ -1,0 +1,15 @@
+/future-slide/
+
+# Workspace/runtime cache
+.omx/
+.cache/
+
+# Python/tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS metadata
+.DS_Store
