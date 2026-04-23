@@ -1,5 +1,15 @@
 # Future Slide Skill
 
+[English](./README.md) | [한국어](./README.ko.md)
+
+![Version](https://img.shields.io/badge/version-0.0.1-333333?style=flat-square)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-yellow.svg)](./LICENSE)
+![Codex Skills](https://img.shields.io/badge/Codex-Skills-111111?style=flat-square)
+![Slides](https://img.shields.io/badge/Slides-Generation-2f6fef?style=flat-square)
+
+Tags: `codex-skills`, `slides`, `presentation`, `deck-generation`,
+`image-generation`
+
 ![Future Slide Skill Flow](public/four-skill-flow.png)
 
 A reusable skill bundle for turning:
@@ -271,3 +281,7 @@ For project-local installation, copy the same folders into:
 
 Codex discovers skills from folders that contain `SKILL.md`, so each copied
 folder must keep its `SKILL.md` at the folder root.
+
+## License
+
+Apache-2.0. See [LICENSE](./LICENSE).
