@@ -6,9 +6,10 @@
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-yellow.svg)](./LICENSE)
 ![Codex Skills](https://img.shields.io/badge/Codex-Skills-111111?style=flat-square)
 ![Slides](https://img.shields.io/badge/Slides-Generation-2f6fef?style=flat-square)
+![Language](https://img.shields.io/badge/Language-English%20%7C%20Korean-555555?style=flat-square)
 
-Tags: `codex-skills`, `slides`, `presentation`, `deck-generation`,
-`image-generation`
+Navigation: [Workflow](#recommended-workflow) | [Examples](#example-prompts) |
+[Install](#installation) | [Tags](#tags) | [License](#license)
 
 ![Future Slide Skill Flow](public/four-skill-flow.png)
 
@@ -89,6 +90,8 @@ This step is intentionally separate so generation can:
 - inspect each page one by one
 - preserve deck consistency across outputs
 - save project-bound assets explicitly instead of leaving them in tool cache
+
+[Back to top](#future-slide-skill)
 
 ## Example prompts
 
@@ -179,6 +182,8 @@ Render the full deck sequentially and save:
 page_1.png ... page_N.png
 ```
 
+[Back to top](#future-slide-skill)
+
 ## Example end-to-end usage
 
 Typical sequence:
@@ -242,6 +247,8 @@ For a full run, the typical artifact chain is:
 3. `slide_prompts.json`
 4. `page_1.png ... page_N.png`
 
+[Back to top](#future-slide-skill)
+
 ## Installation
 
 ### Install with `npx skills`
@@ -282,6 +289,17 @@ For project-local installation, copy the same folders into:
 Codex discovers skills from folders that contain `SKILL.md`, so each copied
 folder must keep its `SKILL.md` at the folder root.
 
+[Back to top](#future-slide-skill)
+
+## Tags
+
+`codex-skills` · `slides` · `presentation` · `deck-generation` ·
+`image-generation` · `prompt-engineering` · `design-system`
+
+[Back to top](#future-slide-skill)
+
 ## License
 
-Apache-2.0. See [LICENSE](./LICENSE).
+Future Slide Skill is released under the [Apache License 2.0](./LICENSE).
+
+[Back to top](#future-slide-skill)

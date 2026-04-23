@@ -6,9 +6,10 @@
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-yellow.svg)](./LICENSE)
 ![Codex Skills](https://img.shields.io/badge/Codex-Skills-111111?style=flat-square)
 ![Slides](https://img.shields.io/badge/Slides-Generation-2f6fef?style=flat-square)
+![Language](https://img.shields.io/badge/Language-English%20%7C%20Korean-555555?style=flat-square)
 
-태그: `codex-skills`, `slides`, `presentation`, `deck-generation`,
-`image-generation`
+바로가기: [사용 흐름](#기본-사용-흐름) | [예시](#예시) |
+[설치](#설치) | [태그](#태그) | [라이선스](#라이선스)
 
 ![Future Slide Skill Flow](public/four-skill-flow.png)
 
@@ -109,6 +110,8 @@
 이미지를 한꺼번에 만들지 않고 페이지 번호 순서대로 생성합니다. 각 장을
 확인한 뒤 작업 폴더에 저장하는 것이 목표입니다.
 
+[맨 위로](#future-slide-skill)
+
 ## 예시
 
 디자인 먼저 추출:
@@ -148,6 +151,8 @@ $gpt-slide-prompt
 $gpt-slide-generate
 ```
 
+[맨 위로](#future-slide-skill)
+
 ## 포함된 파일
 
 - `skills/gpt-slide-design/SKILL.md`
@@ -155,6 +160,8 @@ $gpt-slide-generate
 - `skills/gpt-slide-prompt/SKILL.md`
 - `skills/gpt-slide-generate/SKILL.md`
 - `templates/DESIGN_TEMPLATE.md`
+
+[맨 위로](#future-slide-skill)
 
 ## 설치
 
@@ -195,6 +202,8 @@ cp -R skills/gpt-slide-generate ~/.codex/skills/
 
 각 스킬 폴더 안에는 `SKILL.md`가 폴더 바로 아래에 있어야 합니다.
 
+[맨 위로](#future-slide-skill)
+
 ## 결과물
 
 보통 한 번의 전체 실행에서는 아래 파일들이 생깁니다.
@@ -204,7 +213,17 @@ cp -R skills/gpt-slide-generate ~/.codex/skills/
 3. `slide_prompts.json`
 4. `page_1.png ... page_N.png`
 
+[맨 위로](#future-slide-skill)
+
+## 태그
+
+`codex-skills` · `slides` · `presentation` · `deck-generation` ·
+`image-generation` · `prompt-engineering` · `design-system`
+
+[맨 위로](#future-slide-skill)
+
 ## 라이선스
 
-Apache-2.0 라이선스입니다. 자세한 내용은 [LICENSE](./LICENSE)를
-확인하세요.
+Future Slide Skill은 [Apache License 2.0](./LICENSE)으로 배포됩니다.
+
+[맨 위로](#future-slide-skill)
