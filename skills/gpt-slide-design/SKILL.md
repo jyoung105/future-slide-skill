@@ -13,6 +13,21 @@ This is not a content-rewrite task.
 
 Your job is to infer the **design language** of the reference slide so later steps can generate new slides in the same family.
 
+## Recommended inputs
+
+Use the strongest available design reference, not only a single screenshot.
+Recommended inputs include:
+
+- reference slide image(s)
+- exported slide images from a reference deck
+- PDF files that contain key colors, structured tables, charts, report headers, source notes, disclosure blocks, or other report-like layout systems
+
+When a PDF is available, prefer report PDFs or structured analytical documents
+over loose text documents. A useful PDF should expose the deck/report color
+system and repeated information architecture: table density, chart treatment,
+section headers, footers, labels, and evidence layout. Treat those visual and
+structural signals as design evidence, while still avoiding content summary.
+
 ## Primary goal
 
 Extract a `DESIGN.md` that captures:
