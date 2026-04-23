@@ -5,11 +5,9 @@
 ![Version](https://img.shields.io/badge/version-0.0.1-333333?style=flat-square)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-yellow.svg)](./LICENSE)
 ![Codex Skills](https://img.shields.io/badge/Codex-Skills-111111?style=flat-square)
-![Slides](https://img.shields.io/badge/Slides-Generation-2f6fef?style=flat-square)
-![Language](https://img.shields.io/badge/Language-English%20%7C%20Korean-555555?style=flat-square)
 
 바로가기: [사용 흐름](#기본-사용-흐름) | [예시](#예시) |
-[설치](#설치) | [태그](#태그) | [라이선스](#라이선스)
+[설치](#설치) | [라이선스](#라이선스)
 
 ![Future Slide Skill Flow](public/four-skill-flow.png)
 
@@ -212,13 +210,6 @@ cp -R skills/gpt-slide-generate ~/.codex/skills/
 2. `slide_plan.json`
 3. `slide_prompts.json`
 4. `page_1.png ... page_N.png`
-
-[맨 위로](#future-slide-skill)
-
-## 태그
-
-`codex-skills` · `slides` · `presentation` · `deck-generation` ·
-`image-generation` · `prompt-engineering` · `design-system`
 
 [맨 위로](#future-slide-skill)
 
