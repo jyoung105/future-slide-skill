@@ -9,7 +9,7 @@
 바로가기: [사용 흐름](#기본-사용-흐름) | [예시](#예시) |
 [설치](#설치) | [라이선스](#라이선스)
 
-![Future Slide Skill Flow](public/four-skill-flow.png)
+![Future Slide Skill Flow](public/four-skill-flow_ko.png)
 
 슬라이드 이미지를 그냥 "예쁘게 만들어줘"라고 한 번에 맡기면 결과가
 자주 흔들립니다. 디자인 톤이 바뀌거나, 본문 슬라이드마다 레이아웃이
