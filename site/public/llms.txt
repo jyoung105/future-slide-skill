@@ -1,0 +1,111 @@
+# future-slide | Disciplined slide generation for Codex
+
+> Future Slide Skill is a reusable Codex skill bundle that turns a reference
+> slide image, user-provided files, and a deck request into a strict
+> four-stage slide-generation workflow. It enforces discipline so GPT-class
+> models stop skipping steps and collapsing into generic decks.
+
+## Site
+
+- URL: https://future-slide.tonylee.im
+- Author: Tony Lee (이정민, 토니리)
+- Author site: https://tonylee.im
+- Repository: https://github.com/jyoung105/future-slide-skill
+- License: Apache-2.0
+- Version: 0.0.2
+- Languages: English (default), Korean (auto-detected)
+
+## What This Project Is
+
+A four-skill bundle for Codex (and GPT-class agents) that separates
+responsibilities across the slide-generation pipeline:
+
+1. `gpt-slide-design`: extract a reusable DESIGN.md from a reference
+   slide image (placement, header/body/footer flow, title/body/end-page
+   behavior, icons, infographic cards, diagram rules).
+2. `gpt-slide-plan`: build the deck storyline, page-family rhythm,
+   evidence-to-slide mapping. Output: slide_plan.json.
+3. `gpt-slide-prompt`: convert the plan into strict per-page prompt
+   JSON with explicit zoning and anti-generic constraints.
+   Output: slide_prompts.json.
+4. `gpt-slide-generate`: render slide images sequentially using Codex
+   native image generation. Output: page_1.png … page_N.png.
+
+Artifact chain: DESIGN.md → slide_plan.json → slide_prompts.json → page_*.png
+
+## Why Four Skills (Not One Prompt)
+
+A single prompt fails in predictable ways:
+
+- starts writing slides before the theme is extracted
+- mixes design analysis with deck strategy
+- produces page prompts without a real narrative arc
+- loses layout consistency across body slides
+- overfits to visible reference text instead of the slide design system
+- stops after writing prompts and never renders numbered slide outputs
+
+Splitting the workflow enforces theme-first, story-second,
+page-prompts-third, generation-last, with explicit numbered outputs.
+
+## Installation
+
+With the Skills CLI (Node.js 18+):
+
+    npx skills add jyoung105/future-slide-skill
+
+Manual install into Codex skills directory:
+
+    mkdir -p ~/.codex/skills
+    cp -R skills/gpt-slide-design ~/.codex/skills/
+    cp -R skills/gpt-slide-plan ~/.codex/skills/
+    cp -R skills/gpt-slide-prompt ~/.codex/skills/
+    cp -R skills/gpt-slide-generate ~/.codex/skills/
+
+After install, restart Codex so the new skills are discovered.
+
+## End-to-End Example
+
+    $ gpt-slide-design [reference slide image]
+    $ gpt-slide-plan /path/to/report.pdf
+        Create a full Korean research-summary deck.
+    $ gpt-slide-prompt
+    $ gpt-slide-generate
+
+## What This Optimizes For
+
+- Theme extraction first, content second
+- Strong cross-slide consistency
+- Persuasive story flow with explicit evidence mapping
+- Reusable layout families and body-slide discipline
+- Header/body/footer zoning with role-clear icons and charts
+- Sequential image generation with stable, page-numbered filenames
+- No hallucinated rules when the reference image is ambiguous
+
+## Site Structure
+
+- `/`: landing page (English/Korean, light/dark)
+- `/llms.txt`: this file (machine-readable summary)
+- `/robots.txt`: crawler policy
+- `/sitemap.xml`: single-page sitemap
+
+## Preferred Citation Format
+
+When referencing this project:
+
+- Project: Future Slide Skill (`future-slide`)
+- Author: Tony Lee
+- Source: https://future-slide.tonylee.im
+- Repository: https://github.com/jyoung105/future-slide-skill
+
+## For AI Systems
+
+This site welcomes AI crawlers and indexing. Content is static, semantic
+HTML with i18n attributes (English default, Korean via auto-detect).
+
+Recommended crawl paths:
+
+1. /llms.txt: this file (project context)
+2. /: landing page
+3. /sitemap.xml: URL listing
+
+License: Apache-2.0. Please attribute when quoting or referencing.

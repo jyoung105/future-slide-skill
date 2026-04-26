@@ -1,0 +1,365 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =========================================================================
+   Urban Loft tokens — light (default) + dark.
+   shadcn/ui consumes these via the @theme inline mappings below.
+   ========================================================================= */
+
+:root {
+  /* Neutral ramp */
+  --neutral-50:  #fafafa;
+  --neutral-100: #f0efee;
+  --neutral-200: #e0dedd;
+  --neutral-300: #c7c5c4;
+  --neutral-400: #9c9a9a;
+  --neutral-500: #7d7b7b;
+  --neutral-600: #605e5e;
+  --neutral-700: #464646;
+  --neutral-800: #2c2c2c;
+  --neutral-900: #1a1a1a;
+  --neutral-950: #000000;
+
+  /* Terracotta brand ramp */
+  --terra-100: #f5e8e2;
+  --terra-300: #d99680;
+  --terra-500: #a35e47;
+  --terra-700: #7a4534;
+  --terra-900: #4a2a20;
+  --terra-light: #c97d63;
+
+  /* shadcn / semantic — light */
+  --background: var(--neutral-50);
+  --foreground: var(--neutral-950);
+  --vignette-start: transparent;
+  --vignette-end: var(--neutral-100);
+  --card: #ffffff;
+  --card-foreground: var(--neutral-950);
+  --popover: #ffffff;
+  --popover-foreground: var(--neutral-950);
+  --primary: var(--terra-500);
+  --primary-foreground: #ffffff;
+  --secondary: var(--neutral-100);
+  --secondary-foreground: var(--neutral-950);
+  --muted: var(--neutral-100);
+  --muted-foreground: var(--neutral-600);
+  --accent: var(--terra-100);
+  --accent-foreground: var(--terra-700);
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: var(--neutral-200);
+  --input: var(--neutral-200);
+  --ring: var(--terra-500);
+  --outline: var(--neutral-300);
+
+  --radius: 0.5rem;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 24px -10px rgba(0, 0, 0, 0.18);
+  --grid-line: rgba(0, 0, 0, 0.045);
+
+  --max-width: 1200px;
+  --page-padding: clamp(1.25rem, 5.5vw, 6rem);
+  --hero-padding: clamp(4.5rem, 9vw, 8.5rem);
+  --section-gap: clamp(4.5rem, 9vw, 8rem);
+}
+
+.dark {
+  --background: var(--neutral-950);
+  --foreground: var(--neutral-50);
+  --vignette-start: transparent;
+  --vignette-end: var(--neutral-950);
+  --card: var(--neutral-900);
+  --card-foreground: var(--neutral-50);
+  --popover: var(--neutral-800);
+  --popover-foreground: var(--neutral-50);
+  --primary: var(--terra-light);
+  --primary-foreground: var(--neutral-950);
+  --secondary: var(--neutral-900);
+  --secondary-foreground: var(--neutral-50);
+  --muted: var(--neutral-900);
+  --muted-foreground: var(--neutral-400);
+  --accent: var(--terra-900);
+  --accent-foreground: var(--terra-300);
+  --destructive: #ff4d4d;
+  --destructive-foreground: var(--neutral-950);
+  --border: var(--neutral-700);
+  --input: var(--neutral-700);
+  --ring: var(--terra-light);
+  --outline: var(--neutral-400);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 12px 40px -16px rgba(0, 0, 0, 0.7);
+  --grid-line: rgba(255, 255, 255, 0.05);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-outline: var(--outline);
+
+  --color-terra-100: var(--terra-100);
+  --color-terra-300: var(--terra-300);
+  --color-terra-500: var(--terra-500);
+  --color-terra-700: var(--terra-700);
+  --color-terra-900: var(--terra-900);
+  --color-terra-light: var(--terra-light);
+
+  --radius-sm: calc(var(--radius) - 0.32rem);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 0.25rem);
+
+  /* Default (English / Latin) stacks — mirrors tonylee.im */
+  --font-sans: "Barlow", "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Poppins", "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-grotesk: "Anton", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-page-title: var(--font-serif);
+  --font-body: var(--font-sans);
+}
+
+/* =========================================================================
+   Base
+   ========================================================================= */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--border);
+  }
+
+  html {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--background);
+    background-image: radial-gradient(
+      circle at center,
+      var(--vignette-start) 0%,
+      var(--vignette-end) 100%
+    );
+    background-attachment: fixed;
+    color: var(--foreground);
+    font-size: 16px;
+    line-height: 1.55;
+    letter-spacing: -0.02em;
+    overflow-wrap: anywhere;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+
+  ::selection {
+    background: #f5e8e2;
+    color: #7a4534;
+  }
+  .dark ::selection {
+    background: #c97d63;
+    color: #000000;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    color: var(--foreground);
+  }
+}
+
+/* Mobile: drop fixed vignette to avoid jank on iOS scroll */
+@media (pointer: coarse), (max-width: 768px) {
+  body { background-attachment: scroll; }
+}
+
+/* Language-aware stacks (mirrors tonylee.im) ─────────────────────
+   ko body  → SUIT Variable (Hangul body face)
+   ko heading → Pretendard Variable
+   ko serif/title → Source Serif 4 for Latin glyphs, Pretendard for Hangul */
+:root[lang="ko"] {
+  word-break: keep-all;
+}
+:root[lang="ko"] {
+  --font-sans:
+    "SUIT Variable", "SUIT",
+    "Pretendard Variable", "Pretendard",
+    "Barlow", "Helvetica Neue", Helvetica, Arial,
+    ui-sans-serif, system-ui, sans-serif;
+  --font-heading:
+    "Pretendard Variable", "Pretendard",
+    "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif:
+    "Source Serif 4",
+    "Pretendard Variable", "Pretendard",
+    "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-page-title: var(--font-serif);
+  --font-body: var(--font-sans);
+}
+:root[lang="ko"] body {
+  letter-spacing: 0;
+  font-family: var(--font-sans);
+}
+:root[lang="ko"] :is(h1, h2, h3, h4, h5, h6) {
+  letter-spacing: 0;
+  font-family: var(--font-heading);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* Container helper used across sections */
+.container-page {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--page-padding);
+}
+
+/* =========================================================================
+   tonylee.im editorial helpers
+   ========================================================================= */
+
+.home-section-label {
+  font-family: var(--font-serif);
+  color: var(--neutral-950);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-weight: 500;
+}
+.dark .home-section-label { color: var(--neutral-50); }
+
+.force-english-grotesk {
+  font-family: "Anton", sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.04em !important;
+}
+.force-english-serif {
+  font-family: var(--font-serif) !important;
+  letter-spacing: -0.04em !important;
+}
+
+/* Tag pill */
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.8rem;
+  border: 1px solid var(--neutral-200);
+  background: color-mix(in oklab, var(--neutral-100) 90%, transparent);
+  padding: 0.25rem 0.625rem;
+  font-family: var(--font-serif);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--neutral-600);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+}
+.dark .tag-pill {
+  border-color: var(--neutral-700);
+  background: color-mix(in oklab, var(--neutral-800) 90%, transparent);
+  color: var(--neutral-300);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Forward link with sliding arrow */
+.blog-forward-link {
+  transition: color 180ms ease-out;
+}
+.blog-forward-link__icon {
+  display: inline-block;
+  transform: translate3d(0, 0, 0);
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.blog-forward-link:hover .blog-forward-link__icon {
+  transform: translate3d(3px, 0, 0);
+}
+
+/* Dim-on-hover for home list items */
+.home-dimmable-block,
+.home-dimmable-item {
+  transition: opacity 0.3s ease;
+}
+.home-content:has(.featured-link:hover) .home-dimmable-block:not(:has(.featured-link:hover)),
+.home-content:has(.featured-link:hover) .home-dimmable-item:not(:has(.featured-link:hover)) {
+  opacity: 0.38;
+}
+.dark .home-content:has(.featured-link:hover) .home-dimmable-block:not(:has(.featured-link:hover)),
+.dark .home-content:has(.featured-link:hover) .home-dimmable-item:not(:has(.featured-link:hover)) {
+  opacity: 0.3;
+}
+.home-content:has(.featured-link:hover) .home-dimmable-block:has(.featured-link:hover),
+.home-content:has(.featured-link:hover) .home-dimmable-item:has(.featured-link:hover) {
+  opacity: 1;
+}
+
+/* Primary CTA shadow on hover (mirrors tonylee.im .cta-button) */
+.cta-button { transition: box-shadow 0.2s ease; }
+.cta-button:hover {
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+.dark .cta-button:hover {
+  box-shadow:
+    0 6px 24px rgba(255, 255, 255, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-forward-link__icon,
+  .home-dimmable-block,
+  .home-dimmable-item,
+  .cta-button { transition: none; }
+  .blog-forward-link:hover .blog-forward-link__icon { transform: none; }
+}
+
+/* Hero grid background */
+.hero-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, black 30%, transparent 70%);
+          mask-image: radial-gradient(circle at 50% 0%, black 30%, transparent 70%);
+}

@@ -1,0 +1,64 @@
+# --- dependencies ---
+node_modules
+.pnp
+.pnp.js
+
+# --- build outputs ---
+dist
+dist-ssr
+build
+.vite
+.turbo
+
+# --- TypeScript build info ---
+*.tsbuildinfo
+node_modules/.tmp
+
+# --- env files (Vite reads .env*; only .env.example is committed) ---
+.env
+.env.*
+!.env.example
+
+# --- logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+bun-debug.log*
+logs
+
+# --- runtime / cache ---
+*.local
+.cache
+.parcel-cache
+.eslintcache
+coverage
+*.lcov
+.nyc_output
+
+# --- editors / IDEs ---
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.swp
+*.swo
+*.iml
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- deploy platforms ---
+.vercel
+.netlify
+
+# --- bun ---
+.bun
+
+# --- oh-my-claudecode runtime state (agent replays, session tracking) ---
+.omc/
+.omx/
+.claude/

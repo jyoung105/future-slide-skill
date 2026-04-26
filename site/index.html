@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+
+    <title>future-slide | Disciplined slide generation for Codex</title>
+    <meta
+      name="description"
+      content="future-slide | A reusable Codex skill bundle that turns a reference slide image, your files, and a deck request into a disciplined four-stage slide-generation workflow."
+    />
+    <meta
+      name="keywords"
+      content="future-slide, future slide skill, codex skill, slide generation, deck generation, gpt-slide-design, gpt-slide-plan, gpt-slide-prompt, gpt-slide-generate, AI slide deck, presentation AI, Tony Lee"
+    />
+    <meta name="author" content="Tony Lee" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="generator" content="Vite + React" />
+
+    <!-- Canonical + hreflang -->
+    <link rel="canonical" href="https://future-slide.tonylee.im/" />
+    <link rel="alternate" hreflang="en" href="https://future-slide.tonylee.im/" />
+    <link rel="alternate" hreflang="ko" href="https://future-slide.tonylee.im/" />
+    <link rel="alternate" hreflang="x-default" href="https://future-slide.tonylee.im/" />
+
+    <!-- AEO / LLM discovery -->
+    <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="future-slide" />
+    <meta property="og:url" content="https://future-slide.tonylee.im/" />
+    <meta property="og:title" content="future-slide | Disciplined slide generation for Codex" />
+    <meta property="og:description" content="future-slide | A reusable Codex skill bundle that turns a reference slide image, your files, and a deck request into a disciplined four-stage slide-generation workflow." />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ko_KR" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@jeongmin1604" />
+    <meta name="twitter:creator" content="@jeongmin1604" />
+    <meta name="twitter:title" content="future-slide | Disciplined slide generation for Codex" />
+    <meta name="twitter:description" content="future-slide | A reusable Codex skill bundle for disciplined four-stage slide generation." />
+
+    <!-- JSON-LD: SoftwareApplication + SoftwareSourceCode + FAQPage + WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://future-slide.tonylee.im/#website",
+            "url": "https://future-slide.tonylee.im/",
+            "name": "future-slide",
+            "description": "Disciplined slide generation for Codex.",
+            "inLanguage": ["en", "ko"],
+            "publisher": { "@id": "https://tonylee.im/#person" }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://future-slide.tonylee.im/#app",
+            "name": "Future Slide Skill",
+            "alternateName": "future-slide",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Cross-platform (Codex skill bundle)",
+            "softwareVersion": "0.0.2",
+            "license": "https://www.apache.org/licenses/LICENSE-2.0",
+            "url": "https://future-slide.tonylee.im/",
+            "codeRepository": "https://github.com/jyoung105/future-slide-skill",
+            "programmingLanguage": ["Markdown", "JSON"],
+            "description": "A reusable Codex skill bundle that turns a reference slide image, user files, and a deck request into a disciplined four-stage slide-generation workflow: gpt-slide-design, gpt-slide-plan, gpt-slide-prompt, gpt-slide-generate.",
+            "author": { "@id": "https://tonylee.im/#person" },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://tonylee.im/#person",
+            "name": "Tony Lee",
+            "alternateName": ["이정민", "토니리"],
+            "url": "https://tonylee.im",
+            "sameAs": [
+              "https://github.com/jyoung105",
+              "https://www.linkedin.com/in/jyoung105",
+              "https://x.com/jeongmin1604"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://future-slide.tonylee.im/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is future-slide?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "future-slide is a reusable Codex skill bundle that turns a reference slide image, user files, and a deck request into a disciplined four-stage workflow: extract DESIGN.md, plan the deck, write per-page prompts, and render slide images sequentially."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Why split slide generation into four skills?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A single prompt skips the design step, mixes analysis with strategy, loses cross-slide consistency, overfits to visible reference text, and stops without rendering. Splitting enforces theme-first, story-second, page-prompts-third, generation-last."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I install future-slide?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Run `npx skills add jyoung105/future-slide-skill` (Node.js 18+), or copy the four skill folders into ~/.codex/skills/ and restart Codex."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What artifacts does future-slide produce?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "DESIGN.md, slide_plan.json, slide_prompts.json, then page_1.png through page_N.png saved sequentially with stable page-numbered filenames."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css"
+    />
+    <script>
+      // Pre-paint theme & locale to prevent flash.
+      (function () {
+        try {
+          var t = localStorage.getItem("fss-theme") || "light";
+          var root = document.documentElement;
+          root.classList.remove("light", "dark");
+          root.classList.add(t);
+
+          var l = localStorage.getItem("fss-locale");
+          if (!l) {
+            var nav = (navigator.language || "en").toLowerCase();
+            l = nav.startsWith("ko") ? "ko" : "en";
+          }
+          root.setAttribute("lang", l);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

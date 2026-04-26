@@ -2,9 +2,8 @@
 
 [English](./README.md) | [한국어](./README.ko.md)
 
-![Version](https://img.shields.io/badge/version-0.0.1-333333?style=flat-square)
+![Version](https://img.shields.io/badge/version-0.0.2-333333?style=flat-square)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-yellow.svg)](./LICENSE)
-![Codex Skills](https://img.shields.io/badge/Codex-Skills-111111?style=flat-square)
 
 바로가기: [사용 흐름](#기본-사용-흐름) | [예시](#예시) |
 [설치](#설치) | [라이선스](#라이선스)
