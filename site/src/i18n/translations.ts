@@ -14,6 +14,7 @@ const en: Dict = {
   "nav.install": "Install",
 
   "hero.eyebrow": "Codex Skill Bundle · v0.0.1 · Apache-2.0",
+  "hero.eyebrowScope": "Codex Skill Bundle",
   "hero.titleA": "Disciplined slide generation,",
   "hero.titleB": "one stage at a time.",
   "hero.lede":
@@ -98,6 +99,7 @@ const ko: Dict = {
   "nav.install": "설치",
 
   "hero.eyebrow": "Codex 스킬 번들 · v0.0.1 · Apache-2.0",
+  "hero.eyebrowScope": "Codex 스킬 번들",
   "hero.titleA": "단계마다 규율 있게,",
   "hero.titleB": "흔들림 없는 슬라이드 생성.",
   "hero.lede":

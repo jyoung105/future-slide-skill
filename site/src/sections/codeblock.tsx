@@ -8,7 +8,7 @@ export function CodeBlock({
   children: ReactNode;
 }) {
   return (
-    <div className="overflow-hidden rounded-md border border-neutral-800 bg-[#1a1a1a] shadow-[var(--shadow-md)]">
+    <div className="overflow-hidden rounded-md border border-neutral-200 bg-[#1a1a1a] shadow-sm dark:border-neutral-800">
       <div className="flex items-center gap-1.5 border-b border-neutral-700 bg-neutral-800 px-3 py-2">
         <span className="size-2.5 rounded-full bg-[#ff5f57]" />
         <span className="size-2.5 rounded-full bg-[#febc2e]" />

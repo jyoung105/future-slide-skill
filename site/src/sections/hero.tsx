@@ -1,110 +1,75 @@
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import {
+  ArrowRight,
+  Clock,
+  GithubLogo,
+  GlobeHemisphereWest,
+  Scales,
+} from "@phosphor-icons/react";
 import { useLocale } from "@/i18n/use-locale";
-
-const FLOW = [
-  { num: "01", name: "gpt-slide-design", outKey: "flow.outDesign" },
-  { num: "02", name: "gpt-slide-plan", outKey: "flow.outPlan" },
-  { num: "03", name: "gpt-slide-prompt", outKey: "flow.outPrompt" },
-  { num: "04", name: "gpt-slide-generate", outKey: "flow.outGenerate" },
-] as const;
 
 export function Hero() {
   const { t } = useLocale();
   return (
-    <section className="relative overflow-hidden pt-12 sm:pt-20 pb-[var(--hero-padding)]">
-      <div
-        aria-hidden
-        className="hero-grid absolute inset-0 pointer-events-none"
-      />
-      <div className="container-page relative">
-        <Badge variant="accent" className="font-medium">
-          <span
-            className="size-1.5 rounded-full bg-primary shadow-[0_0_0_4px_color-mix(in_oklab,var(--primary)_24%,transparent)]"
-            aria-hidden
-          />
-          {t("hero.eyebrow")}
-        </Badge>
+    <section className="flex flex-col gap-6 pt-6 md:pt-12">
+      <h1 className="home-dimmable-block force-english-grotesk text-[clamp(2.25rem,6vw,3.75rem)] leading-[1.05] font-normal uppercase tracking-tight text-neutral-900 dark:text-neutral-100">
+        future-slide
+      </h1>
 
-        <h1 className="mt-6 font-serif text-[clamp(2.4rem,6vw,4.4rem)] leading-[1.04] font-medium tracking-[-0.025em] max-w-[22ch]">
-          <span className="block">{t("hero.titleA")}</span>
-          <span className="block italic text-muted-foreground">
-            {t("hero.titleB")}
-          </span>
-        </h1>
+      <div className="home-dimmable-block flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-neutral-500 dark:text-neutral-300 dark:opacity-80">
+        <span className="inline-flex items-center gap-1.5">
+          <Clock className="h-3 w-3" weight="regular" aria-hidden />
+          <span>v0.0.1</span>
+        </span>
+        <span aria-hidden className="text-neutral-300 dark:text-neutral-600">
+          |
+        </span>
+        <span className="inline-flex items-center gap-1.5">
+          <Scales className="h-3 w-3" weight="regular" aria-hidden />
+          <span>Apache-2.0</span>
+        </span>
+        <span aria-hidden className="text-neutral-300 dark:text-neutral-600">
+          |
+        </span>
+        <span className="inline-flex items-center gap-1.5">
+          <GlobeHemisphereWest className="h-3 w-3" weight="regular" aria-hidden />
+          <span>{t("hero.eyebrowScope")}</span>
+        </span>
+      </div>
 
-        <p className="mt-6 max-w-[60ch] text-[clamp(1.02rem,1.4vw,1.18rem)] text-muted-foreground">
+      <div className="home-dimmable-block max-w-none text-base leading-relaxed text-neutral-600 dark:text-neutral-400 dark:opacity-80">
+        <p className="m-0">
+          <span className="text-neutral-900 dark:text-neutral-100 font-medium">
+            {t("hero.titleA")}
+          </span>{" "}
+          {t("hero.titleB")}
+          <br />
           {t("hero.lede")}
         </p>
+      </div>
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Button asChild size="lg">
-            <a href="#install">{t("hero.ctaInstall")}</a>
-          </Button>
-          <Button asChild variant="outline" size="lg">
-            <a href="#workflow">
-              {t("hero.ctaWorkflow")}
-              <ArrowRight />
-            </a>
-          </Button>
+      <div className="home-dimmable-block flex items-center gap-6">
+        <div className="flex gap-5">
+          <a
+            href="https://github.com/jyoung105/future-slide-skill"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="GitHub"
+            className="inline-flex h-5 w-5 items-center justify-center text-neutral-500 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white transition-colors"
+          >
+            <GithubLogo className="h-5 w-5" weight="regular" aria-hidden />
+          </a>
         </div>
-
-        <div
-          role="img"
-          aria-label="Four-stage slide workflow"
-          className="mt-10 sm:mt-14"
+        <a
+          href="#workflow"
+          className="blog-forward-link group inline-flex items-center gap-1 text-sm font-medium text-primary hover:text-accent-foreground dark:hover:text-accent-foreground"
         >
-          <div className="flex flex-wrap items-stretch gap-2 rounded-md border border-border bg-card p-4 shadow-[var(--shadow-md)]">
-            {FLOW.map((step, idx) => (
-              <div key={step.num} className="contents">
-                <div
-                  className={`flex flex-1 min-w-[180px] flex-col gap-1.5 rounded-sm border border-border p-4 ${
-                    idx === FLOW.length - 1
-                      ? "bg-accent border-[color-mix(in_oklab,var(--accent-foreground)_18%,transparent)]"
-                      : "bg-muted"
-                  }`}
-                >
-                  <span
-                    className={`font-mono text-[0.72rem] tracking-[0.08em] ${
-                      idx === FLOW.length - 1
-                        ? "text-accent-foreground"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    {step.num}
-                  </span>
-                  <span
-                    className={`font-mono text-sm font-semibold ${
-                      idx === FLOW.length - 1
-                        ? "text-accent-foreground"
-                        : "text-foreground"
-                    }`}
-                  >
-                    {step.name}
-                  </span>
-                  <span
-                    className={`text-xs ${
-                      idx === FLOW.length - 1
-                        ? "text-accent-foreground/75"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    {t(step.outKey)}
-                  </span>
-                </div>
-                {idx < FLOW.length - 1 && (
-                  <span
-                    aria-hidden
-                    className="hidden md:inline-flex items-center text-outline px-1 text-xl"
-                  >
-                    →
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
+          <span>{t("hero.ctaWorkflow")}</span>
+          <ArrowRight
+            className="blog-forward-link__icon h-4 w-4"
+            weight="regular"
+            aria-hidden
+          />
+        </a>
       </div>
     </section>
   );

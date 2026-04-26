@@ -1,3 +1,4 @@
+import { Check } from "@phosphor-icons/react";
 import { useLocale } from "@/i18n/use-locale";
 import { SectionHead } from "./section-head";
 
@@ -14,26 +15,23 @@ const KEYS = [
 export function Optimize() {
   const { t } = useLocale();
   return (
-    <section className="border-t border-border py-[var(--section-gap)]">
-      <div className="container-page">
-        <SectionHead kicker={t("opt.kicker")} title={t("opt.title")} />
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
-          {KEYS.map((k) => (
-            <li
-              key={k}
-              className="relative border-l-2 border-primary bg-muted py-3 pl-9 pr-4 text-sm text-foreground"
-            >
-              <span
-                aria-hidden
-                className="absolute left-3 top-1/2 -translate-y-1/2 font-bold text-primary"
-              >
-                ✓
-              </span>
-              {t(k)}
-            </li>
-          ))}
-        </ul>
-      </div>
+    <section className="space-y-6">
+      <SectionHead title={t("opt.title")} />
+      <ul className="flex flex-col gap-2.5">
+        {KEYS.map((k) => (
+          <li
+            key={k}
+            className="home-dimmable-item flex items-start gap-2.5 text-neutral-600 dark:text-neutral-400 dark:opacity-80"
+          >
+            <Check
+              className="mt-1 h-3.5 w-3.5 shrink-0 text-primary"
+              weight="bold"
+              aria-hidden
+            />
+            <span>{t(k)}</span>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

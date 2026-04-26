@@ -1,55 +1,34 @@
+import { GithubLogo } from "@phosphor-icons/react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LangToggle } from "@/components/lang-toggle";
-import { BrandMark } from "@/components/brand-mark";
 import { useLocale } from "@/i18n/use-locale";
 
 export function SiteHeader() {
   const { t } = useLocale();
   return (
-    <header className="sticky top-0 z-30 border-b border-border bg-[color-mix(in_oklab,var(--background)_88%,transparent)] backdrop-blur-md backdrop-saturate-150">
-      <div className="container-page flex items-center justify-between gap-6 py-3.5">
-        <a
-          href="/"
-          aria-label="Future Slide Skill home"
-          className="inline-flex items-center gap-2 font-semibold text-foreground"
-        >
-          <BrandMark />
-          <span className="font-serif text-base">Future Slide Skill</span>
-        </a>
-
+    <header className="absolute top-12 left-0 right-0 md:top-6 z-50">
+      <div className="w-full max-w-2xl mx-auto px-6 flex justify-end items-center gap-3">
         <nav
           aria-label="Primary"
-          className="hidden md:flex items-center gap-6 text-sm"
+          className="flex items-center gap-3 sm:gap-5 text-sm text-neutral-500 dark:text-neutral-300"
         >
-          <a
-            href="#workflow"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            {t("nav.workflow")}
-          </a>
-          <a
-            href="#examples"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            {t("nav.examples")}
-          </a>
-          <a
-            href="#install"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            {t("nav.install")}
-          </a>
           <a
             href="https://github.com/jyoung105/future-slide-skill"
             target="_blank"
             rel="noreferrer noopener"
-            className="text-muted-foreground hover:text-foreground transition-colors"
+            className="hidden sm:inline-flex items-center gap-1.5 hover:text-neutral-900 dark:hover:text-white transition-colors"
           >
-            GitHub ↗
+            <GithubLogo className="h-4 w-4" weight="regular" aria-hidden />
+            <span>GitHub</span>
+          </a>
+          <a
+            href="#install"
+            className="cta-button shrink-0 inline-flex items-center justify-center h-9 px-3.5 rounded-md text-sm font-medium bg-black text-white dark:bg-white dark:text-black"
+          >
+            {t("hero.ctaInstall")}
           </a>
         </nav>
-
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <LangToggle />
           <ThemeToggle />
         </div>

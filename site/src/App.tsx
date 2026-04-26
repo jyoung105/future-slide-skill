@@ -14,18 +14,20 @@ export function App() {
     <>
       <a
         href="#main"
-        className="absolute -left-[9999px] top-0 z-50 bg-primary px-3 py-2 text-primary-foreground focus:left-0"
+        className="absolute -left-[9999px] top-0 z-[60] bg-primary px-3 py-2 text-primary-foreground focus:left-0"
       >
         {t("a11y.skip")}
       </a>
       <SiteHeader />
-      <main id="main">
-        <Hero />
-        <Why />
-        <Workflow />
-        <Examples />
-        <Install />
-        <Optimize />
+      <main id="main" className="relative">
+        <div className="w-full max-w-2xl mx-auto px-6 pt-28 md:pt-24 pb-16 home-content space-y-16">
+          <Hero />
+          <Workflow />
+          <Why />
+          <Examples />
+          <Install />
+          <Optimize />
+        </div>
       </main>
       <SiteFooter />
     </>
