@@ -126,11 +126,14 @@
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 0.25rem);
 
+  /* Default (English / Latin) stacks — mirrors tonylee.im */
   --font-sans: "Barlow", "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Poppins", "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --font-grotesk: "Anton", "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-page-title: var(--font-serif);
+  --font-body: var(--font-sans);
 }
 
 /* =========================================================================
@@ -200,22 +203,36 @@
   body { background-attachment: scroll; }
 }
 
-/* Language-aware line-breaking (mirrors tonylee.im) */
+/* Language-aware stacks (mirrors tonylee.im) ─────────────────────
+   ko body  → SUIT Variable (Hangul body face)
+   ko heading → Pretendard Variable
+   ko serif/title → Source Serif 4 for Latin glyphs, Pretendard for Hangul */
 :root[lang="ko"] {
   word-break: keep-all;
 }
-:root[lang="ko"] body {
-  letter-spacing: 0;
-  font-family:
+:root[lang="ko"] {
+  --font-sans:
+    "SUIT Variable", "SUIT",
     "Pretendard Variable", "Pretendard",
     "Barlow", "Helvetica Neue", Helvetica, Arial,
     ui-sans-serif, system-ui, sans-serif;
+  --font-heading:
+    "Pretendard Variable", "Pretendard",
+    "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif:
+    "Source Serif 4",
+    "Pretendard Variable", "Pretendard",
+    "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-page-title: var(--font-serif);
+  --font-body: var(--font-sans);
+}
+:root[lang="ko"] body {
+  letter-spacing: 0;
+  font-family: var(--font-sans);
 }
 :root[lang="ko"] :is(h1, h2, h3, h4, h5, h6) {
   letter-spacing: 0;
-  font-family:
-    "Pretendard Variable", "Pretendard",
-    "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-heading);
 }
 
 @media (prefers-reduced-motion: reduce) {
