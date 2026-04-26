@@ -20,15 +20,15 @@
 A four-skill bundle for Codex (and GPT-class agents) that separates
 responsibilities across the slide-generation pipeline:
 
-1. `gpt-slide-design` — extract a reusable DESIGN.md from a reference
+1. `gpt-slide-design`: extract a reusable DESIGN.md from a reference
    slide image (placement, header/body/footer flow, title/body/end-page
    behavior, icons, infographic cards, diagram rules).
-2. `gpt-slide-plan` — build the deck storyline, page-family rhythm,
+2. `gpt-slide-plan`: build the deck storyline, page-family rhythm,
    evidence-to-slide mapping. Output: slide_plan.json.
-3. `gpt-slide-prompt` — convert the plan into strict per-page prompt
+3. `gpt-slide-prompt`: convert the plan into strict per-page prompt
    JSON with explicit zoning and anti-generic constraints.
    Output: slide_prompts.json.
-4. `gpt-slide-generate` — render slide images sequentially using Codex
+4. `gpt-slide-generate`: render slide images sequentially using Codex
    native image generation. Output: page_1.png … page_N.png.
 
 Artifact chain: DESIGN.md → slide_plan.json → slide_prompts.json → page_*.png
@@ -45,7 +45,7 @@ A single prompt fails in predictable ways:
 - stops after writing prompts and never renders numbered slide outputs
 
 Splitting the workflow enforces theme-first, story-second,
-page-prompts-third, generation-last — with explicit numbered outputs.
+page-prompts-third, generation-last, with explicit numbered outputs.
 
 ## Installation
 
@@ -83,10 +83,10 @@ After install, restart Codex so the new skills are discovered.
 
 ## Site Structure
 
-- `/` — landing page (English/Korean, light/dark)
-- `/llms.txt` — this file (machine-readable summary)
-- `/robots.txt` — crawler policy
-- `/sitemap.xml` — single-page sitemap
+- `/`: landing page (English/Korean, light/dark)
+- `/llms.txt`: this file (machine-readable summary)
+- `/robots.txt`: crawler policy
+- `/sitemap.xml`: single-page sitemap
 
 ## Preferred Citation Format
 
@@ -104,8 +104,8 @@ HTML with i18n attributes (English default, Korean via auto-detect).
 
 Recommended crawl paths:
 
-1. /llms.txt — this file (project context)
-2. / — landing page
-3. /sitemap.xml — URL listing
+1. /llms.txt: this file (project context)
+2. /: landing page
+3. /sitemap.xml: URL listing
 
 License: Apache-2.0. Please attribute when quoting or referencing.

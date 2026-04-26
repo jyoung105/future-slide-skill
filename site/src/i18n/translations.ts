@@ -30,20 +30,20 @@ const en: Dict = {
   "why.kicker": "Why four skills",
   "why.title": "A single prompt fails in predictable ways.",
   "why.sub":
-    "So this bundle separates responsibilities. Theme first. Story second. Page-level prompts third. Generation last — with explicit, numbered outputs.",
+    "So this bundle separates responsibilities. Theme first. Story second. Page-level prompts third. Generation last, with explicit, numbered outputs.",
   "why.p1": "Starts writing slides before the theme is extracted.",
   "why.p2": "Mixes design analysis with deck strategy.",
   "why.p3": "Produces page prompts without a real narrative arc.",
   "why.p4": "Loses layout consistency across body slides.",
   "why.p5": "Overfits to visible text, not the slide design system.",
-  "why.p6": "Stops after writing prompts — never renders numbered slides.",
+  "why.p6": "Stops after writing prompts, never renders numbered slides.",
 
   "workflow.kicker": "The workflow",
   "workflow.title": "Four skills, one disciplined pipeline.",
   "workflow.in": "Inputs",
   "workflow.out": "Output",
   "workflow.s1.body":
-    "Extract a reusable DESIGN.md from a reference slide image — placement, header/body/footer flow, title/body/end-page behavior, icon usage, infographic cards, and diagram rules.",
+    "Extract a reusable DESIGN.md from a reference slide image: placement, header/body/footer flow, title/body/end-page behavior, icon usage, infographic cards, and diagram rules.",
   "workflow.s1.in": "Reference slide image(s)",
   "workflow.s2.body":
     "Build the storyline and page-family rhythm. Decide where tables, charts, icon-led modules, and comparison exhibits belong. Map evidence to slides.",
@@ -123,14 +123,14 @@ const ko: Dict = {
   "why.p5":
     "참조 이미지의 슬라이드 디자인 시스템이 아닌, 보이는 텍스트에 과적합됩니다.",
   "why.p6":
-    "프롬프트 작성에서 멈추고 — 번호 매겨진 슬라이드를 절대 렌더링하지 않습니다.",
+    "프롬프트 작성에서 멈추고, 번호 매겨진 슬라이드를 절대 렌더링하지 않습니다.",
 
   "workflow.kicker": "워크플로",
   "workflow.title": "4개의 스킬, 하나의 엄격한 파이프라인.",
   "workflow.in": "입력",
   "workflow.out": "출력",
   "workflow.s1.body":
-    "참조 슬라이드 이미지에서 재사용 가능한 DESIGN.md를 추출합니다 — 배치, 헤더/본문/푸터 흐름, 타이틀/본문/엔드 페이지 동작, 아이콘 사용, 인포그래픽 카드, 다이어그램 규칙까지.",
+    "참조 슬라이드 이미지에서 재사용 가능한 DESIGN.md를 추출합니다: 배치, 헤더/본문/푸터 흐름, 타이틀/본문/엔드 페이지 동작, 아이콘 사용, 인포그래픽 카드, 다이어그램 규칙까지.",
   "workflow.s1.in": "참조 슬라이드 이미지",
   "workflow.s2.body":
     "스토리라인과 페이지 패밀리 리듬을 설계합니다. 표, 차트, 아이콘 모듈, 비교 전시 위치를 결정하고 근거를 슬라이드에 매핑합니다.",
