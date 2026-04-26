@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="A reusable Codex skill bundle that turns a reference slide image, your files, and a deck request into a disciplined four-stage slide-generation workflow."
+    />
+    <title>Future Slide Skill — disciplined slide generation for Codex</title>
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <script>
+      // Pre-paint theme & locale to prevent flash.
+      (function () {
+        try {
+          var t = localStorage.getItem("fss-theme") || "light";
+          var root = document.documentElement;
+          root.classList.remove("light", "dark");
+          root.classList.add(t);
+
+          var l = localStorage.getItem("fss-locale");
+          if (!l) {
+            var nav = (navigator.language || "en").toLowerCase();
+            l = nav.startsWith("ko") ? "ko" : "en";
+          }
+          root.setAttribute("lang", l);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
