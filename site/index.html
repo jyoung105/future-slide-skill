@@ -7,10 +7,10 @@
     <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
 
-    <title>future-slide | Disciplined slide generation for Codex</title>
+    <title>future-slide | Reusable slide-generation AI skill</title>
     <meta
       name="description"
-      content="future-slide | A reusable Codex skill bundle that turns a reference slide image, your files, and a deck request into a disciplined four-stage slide-generation workflow."
+      content="future-slide | Reusable slide-generation AI skill"
     />
     <meta
       name="keywords"
@@ -30,13 +30,18 @@
     <!-- AEO / LLM discovery -->
     <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    <link id="favicon-ico" rel="icon" href="/logo/light/favicon.ico" sizes="any" />
+    <link id="favicon-32" rel="icon" type="image/png" sizes="32x32" href="/logo/light/favicon-32x32.png" />
+    <link id="favicon-16" rel="icon" type="image/png" sizes="16x16" href="/logo/light/favicon-16x16.png" />
+    <link id="apple-touch-icon" rel="apple-touch-icon" href="/logo/light/apple-touch-icon.png" />
+    <link id="site-webmanifest" rel="manifest" href="/logo/light/site.webmanifest" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="future-slide" />
     <meta property="og:url" content="https://future-slide.tonylee.im/" />
-    <meta property="og:title" content="future-slide | Disciplined slide generation for Codex" />
-    <meta property="og:description" content="future-slide | A reusable Codex skill bundle that turns a reference slide image, your files, and a deck request into a disciplined four-stage slide-generation workflow." />
+    <meta property="og:title" content="future-slide | Reusable slide-generation AI skill" />
+    <meta property="og:description" content="future-slide | Reusable slide-generation AI skill" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="ko_KR" />
 
@@ -44,8 +49,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@jeongmin1604" />
     <meta name="twitter:creator" content="@jeongmin1604" />
-    <meta name="twitter:title" content="future-slide | Disciplined slide generation for Codex" />
-    <meta name="twitter:description" content="future-slide | A reusable Codex skill bundle for disciplined four-stage slide generation." />
+    <meta name="twitter:title" content="future-slide | Reusable slide-generation AI skill" />
+    <meta name="twitter:description" content="future-slide | Reusable slide-generation AI skill" />
 
     <!-- JSON-LD: SoftwareApplication + SoftwareSourceCode + FAQPage + WebSite -->
     <script type="application/ld+json">
@@ -157,6 +162,18 @@
           var root = document.documentElement;
           root.classList.remove("light", "dark");
           root.classList.add(t);
+          var base = "/logo/" + t + "/";
+          var favicons = {
+            "favicon-ico": "favicon.ico",
+            "favicon-32": "favicon-32x32.png",
+            "favicon-16": "favicon-16x16.png",
+            "apple-touch-icon": "apple-touch-icon.png",
+            "site-webmanifest": "site.webmanifest"
+          };
+          Object.keys(favicons).forEach(function (id) {
+            var el = document.getElementById(id);
+            if (el) el.setAttribute("href", base + favicons[id]);
+          });
 
           var l = localStorage.getItem("fss-locale");
           if (!l) {

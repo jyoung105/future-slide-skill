@@ -1,10 +1,16 @@
-# https://future-slide.tonylee.im — robots policy
+# https://future-slide.tonylee.im - robots policy
 
 User-agent: *
 Allow: /
 
-# Welcome AI crawlers explicitly (no rate limiting)
+# AI and research crawlers are welcome to index this public project site.
 User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ClaudeBot
@@ -26,3 +32,4 @@ User-agent: CCBot
 Allow: /
 
 Sitemap: https://future-slide.tonylee.im/sitemap.xml
+LLMs: https://future-slide.tonylee.im/llms.txt

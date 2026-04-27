@@ -3,7 +3,7 @@ export type Locale = "en" | "ko";
 type Dict = Record<string, string>;
 
 const en: Dict = {
-  "meta.title": "future-slide | Disciplined slide generation for Codex",
+  "meta.title": "future-slide | Reusable slide-generation AI skill",
   "a11y.skip": "Skip to content",
   "a11y.themeToDark": "Switch to dark mode",
   "a11y.themeToLight": "Switch to light mode",
@@ -88,7 +88,7 @@ const en: Dict = {
 
 const ko: Dict = {
   "meta.title":
-    "future-slide | Codex를 위한 단단한 슬라이드 생성 워크플로",
+    "future-slide | Reusable slide-generation AI skill",
   "a11y.skip": "본문으로 이동",
   "a11y.themeToDark": "다크 모드로 전환",
   "a11y.themeToLight": "라이트 모드로 전환",
