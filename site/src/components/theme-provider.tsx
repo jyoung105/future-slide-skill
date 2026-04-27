@@ -2,7 +2,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useState,
   type ReactNode,
 } from "react";
@@ -17,6 +16,29 @@ interface ThemeContextValue {
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
+
+const THEME_ASSETS = {
+  "favicon-ico": "favicon.ico",
+  "favicon-32": "favicon-32x32.png",
+  "favicon-16": "favicon-16x16.png",
+  "apple-touch-icon": "apple-touch-icon.png",
+  "site-webmanifest": "site.webmanifest",
+} as const;
+
+function applyTheme(t: Theme) {
+  const root = document.documentElement;
+  root.classList.remove("light", "dark");
+  root.classList.add(t);
+
+  const base = `/logo/${t}/`;
+  Object.entries(THEME_ASSETS).forEach(([id, filename]) => {
+    document.getElementById(id)?.setAttribute("href", `${base}${filename}`);
+  });
+
+  try {
+    localStorage.setItem(STORAGE_KEY, t);
+  } catch {}
+}
 
 function readInitialTheme(): Theme {
   if (typeof document === "undefined") return "light";
@@ -33,20 +55,14 @@ function readInitialTheme(): Theme {
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(readInitialTheme);
 
-  useEffect(() => {
-    const root = document.documentElement;
-    root.classList.remove("light", "dark");
-    root.classList.add(theme);
-    try {
-      localStorage.setItem(STORAGE_KEY, theme);
-    } catch {}
-  }, [theme]);
+  const setTheme = useCallback((t: Theme) => {
+    applyTheme(t);
+    setThemeState(t);
+  }, []);
 
-  const setTheme = useCallback((t: Theme) => setThemeState(t), []);
-  const toggle = useCallback(
-    () => setThemeState((t) => (t === "dark" ? "light" : "dark")),
-    [],
-  );
+  const toggle = useCallback(() => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  }, [setTheme, theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, toggle }}>
