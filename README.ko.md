@@ -36,16 +36,16 @@
 
 그래서 이 묶음은 역할을 분리합니다.
 
-- **`gpt-slide-design`**: 참고 자료에서 재사용 가능한 `DESIGN.md` 추출
-- **`gpt-slide-plan`**: 설득 흐름, 페이지 순서, 근거 배치 설계
-- **`gpt-slide-prompt`**: 페이지별 생성 프롬프트 JSON 작성
-- **`gpt-slide-generate`**: 슬라이드 이미지를 한 장씩 생성하고 저장
+- **`slide-design`**: 참고 자료에서 재사용 가능한 `DESIGN.md` 추출
+- **`gpt-image-slide-plan`**: 설득 흐름, 페이지 순서, 근거 배치 설계
+- **`gpt-image-slide-prompt`**: 페이지별 생성 프롬프트 JSON 작성
+- **`gpt-image-slide-render`**: 슬라이드 이미지를 한 장씩 생성하고 저장
 
 ## 기본 사용 흐름
 
 아래 순서대로 쓰는 것을 권장합니다.
 
-### 1. `gpt-slide-design`
+### 1. `slide-design`
 
 입력:
 
@@ -60,7 +60,7 @@
 이 단계는 내용을 요약하는 단계가 아닙니다. 색, 글자 위계, 여백, 표와
 차트 처리, 제목/본문/푸터 배치 같은 "디자인 언어"를 뽑는 단계입니다.
 
-### 2. `gpt-slide-plan`
+### 2. `gpt-image-slide-plan`
 
 입력:
 
@@ -75,7 +75,7 @@
 자료를 파일 순서대로 나열하지 않고, 청중이 이해하기 좋은 이야기 흐름으로
 정리합니다.
 
-### 3. `gpt-slide-prompt`
+### 3. `gpt-image-slide-prompt`
 
 입력:
 
@@ -90,7 +90,7 @@
 헤더, 본문, 푸터 구역을 나누고 표/차트/카드/다이어그램이 어디에 들어갈지
 구체적으로 적습니다.
 
-### 4. `gpt-slide-generate`
+### 4. `gpt-image-slide-render`
 
 입력:
 
@@ -114,13 +114,13 @@
 디자인 먼저 추출:
 
 ```text
-$gpt-slide-design [reference slide image]
+$slide-design [reference slide image]
 ```
 
 보고서 PDF를 참고해 분석 덱 계획:
 
 ```text
-$gpt-slide-plan /path/to/report.pdf
+$gpt-image-slide-plan /path/to/report.pdf
 이 리포트를 바탕으로 한국어 분석 슬라이드 덱을 만들어줘.
 표와 차트 중심의 보고서 톤을 유지해줘.
 ```
@@ -128,34 +128,34 @@ $gpt-slide-plan /path/to/report.pdf
 페이지별 생성 프롬프트 작성:
 
 ```text
-$gpt-slide-prompt
+$gpt-image-slide-prompt
 DESIGN.md와 slide_plan.json을 사용해서 페이지별 프롬프트 JSON을 만들어줘.
 ```
 
 이미지 생성:
 
 ```text
-$gpt-slide-generate
+$gpt-image-slide-render
 slide_prompts.json을 기준으로 모든 페이지를 순서대로 만들고 page_1.png 형식으로 저장해줘.
 ```
 
 전체 흐름:
 
 ```text
-$gpt-slide-design [reference slide image or report PDF]
-$gpt-slide-plan /path/to/report.pdf 한국어 리서치 요약 덱을 만들어줘.
-$gpt-slide-prompt
-$gpt-slide-generate
+$slide-design [reference slide image or report PDF]
+$gpt-image-slide-plan /path/to/report.pdf 한국어 리서치 요약 덱을 만들어줘.
+$gpt-image-slide-prompt
+$gpt-image-slide-render
 ```
 
 [맨 위로](#future-slide-skill)
 
 ## 포함된 파일
 
-- `skills/gpt-slide-design/SKILL.md`
-- `skills/gpt-slide-plan/SKILL.md`
-- `skills/gpt-slide-prompt/SKILL.md`
-- `skills/gpt-slide-generate/SKILL.md`
+- `skills/slide-design/SKILL.md`
+- `skills/gpt-image-slide-plan/SKILL.md`
+- `skills/gpt-image-slide-prompt/SKILL.md`
+- `skills/gpt-image-slide-render/SKILL.md`
 - `templates/DESIGN_TEMPLATE.md`
 
 [맨 위로](#future-slide-skill)
@@ -185,10 +185,10 @@ npx skills add https://github.com/jyoung105/future-slide-skill.git
 
 ```bash
 mkdir -p ~/.codex/skills
-cp -R skills/gpt-slide-design ~/.codex/skills/
-cp -R skills/gpt-slide-plan ~/.codex/skills/
-cp -R skills/gpt-slide-prompt ~/.codex/skills/
-cp -R skills/gpt-slide-generate ~/.codex/skills/
+cp -R skills/slide-design ~/.codex/skills/
+cp -R skills/gpt-image-slide-plan ~/.codex/skills/
+cp -R skills/gpt-image-slide-prompt ~/.codex/skills/
+cp -R skills/gpt-image-slide-render ~/.codex/skills/
 ```
 
 프로젝트 안에서만 쓰고 싶다면 아래 위치에 복사합니다.
