@@ -4,28 +4,28 @@ import { SectionHead } from "./section-head";
 const STEPS = [
   {
     num: "01",
-    name: "gpt-slide-design",
+    name: "slide-design",
     bodyKey: "workflow.s1.body",
     inKey: "workflow.s1.in",
     out: "DESIGN.md",
   },
   {
     num: "02",
-    name: "gpt-slide-plan",
+    name: "gpt-image-slide-plan",
     bodyKey: "workflow.s2.body",
     inKey: "workflow.s2.in",
     out: "slide_plan.json",
   },
   {
     num: "03",
-    name: "gpt-slide-prompt",
+    name: "gpt-image-slide-prompt",
     bodyKey: "workflow.s3.body",
     inKey: "workflow.s3.in",
     out: "slide_prompts.json",
   },
   {
     num: "04",
-    name: "gpt-slide-generate",
+    name: "gpt-image-slide-render",
     bodyKey: "workflow.s4.body",
     inKey: "workflow.s4.in",
     out: "page_*.png",
