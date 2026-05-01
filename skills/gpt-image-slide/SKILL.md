@@ -14,7 +14,7 @@ Use this skill when the user asks for the full GPT-image slide workflow, for exa
 
 This is the orchestrator. If the user asks for only one step, use the matching step skill instead:
 
-- `$gpt-image-slide-design` for `DESIGN.md`
+- `$slide-design` for `DESIGN.md`
 - `$gpt-image-slide-plan` for `slide_plan.json`
 - `$gpt-image-slide-prompt` for `slide_prompts.json`
 - `$gpt-image-slide-render` for final `page_<n>.png` images
