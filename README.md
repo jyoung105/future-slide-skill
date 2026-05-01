@@ -38,7 +38,7 @@ A single prompt often fails in predictable ways:
 
 So this bundle separates responsibilities:
 
-- **`gpt-image-slide-design`** → extract a reusable `DESIGN.md`
+- **`slide-design`** → extract a reusable `DESIGN.md`
 - **`gpt-image-slide-plan`** → decide deck logic, ordering, and persuasion
 - **`gpt-image-slide-prompt`** → convert that plan into detailed page prompts
 - **`gpt-image-slide-render`** → generate slide images sequentially and save them with page-number filenames
@@ -50,7 +50,7 @@ Use the newer command families when you want to choose the output mode explicitl
 ### GPT image slide commands
 
 - **`$gpt-image-slide`** → run the full image workflow: design → plan → prompt → render
-- **`$gpt-image-slide-design`** → only create `DESIGN.md`
+- **`$slide-design`** → only create `DESIGN.md`
 - **`$gpt-image-slide-plan`** → only create `slide_plan.json`
 - **`$gpt-image-slide-prompt`** → only create `slide_prompts.json`
 - **`$gpt-image-slide-render`** → only render `page_1.png ... page_N.png`
@@ -58,7 +58,7 @@ Use the newer command families when you want to choose the output mode explicitl
 ### HTML slide commands
 
 - **`$html-slide`** → run the full HTML workflow: design → plan → prompt → render
-- **`$html-slide-design`** → only create browser-implementable `DESIGN.md`
+- **`$slide-design`** → only create browser-implementable `DESIGN.md`
 - **`$html-slide-plan`** → only create `slide_plan.json`
 - **`$html-slide-prompt`** → only create `html_slide_prompts.json`
 - **`$html-slide-render`** → only build the HTML slide deck
@@ -67,7 +67,7 @@ Use the newer command families when you want to choose the output mode explicitl
 
 Use the skills in this exact sequence:
 
-### 1) `gpt-image-slide-design`
+### 1) `slide-design`
 Inputs:
 - reference slide image(s)
 
@@ -114,20 +114,20 @@ This step is intentionally separate so generation can:
 
 Below are concrete example prompts based on the actual way these skills were used for the Samsung Biologics / Hana Securities workflow.
 
-### `gpt-image-slide-design`
+### `slide-design`
 
 Use when you have a reference slide image or reference deck image and want to extract a reusable design system.
 
 Example:
 
 ```text
-$gpt-image-slide-design [Image #1]
+$slide-design [Image #1]
 ```
 
 More explicit example:
 
 ```text
-$gpt-image-slide-design
+$slide-design
 Extract the design theme from this reference slide image.
 Focus on official DESIGN.md output with layout placement, header/body/footer flow,
 title page / body page / end page flow, icon usage, infographic cards, and diagram behavior.
@@ -206,7 +206,7 @@ page_1.png ... page_N.png
 Typical sequence:
 
 ```text
-$gpt-image-slide-design [reference slide image]
+$slide-design [reference slide image]
 $gpt-image-slide-plan /path/to/report.pdf Create a full Korean research-summary deck.
 $gpt-image-slide-prompt
 $gpt-image-slide-render
@@ -229,7 +229,7 @@ $gpt-image-slide-render
 ## Output artifacts
 
 This bundle includes:
-- `skills/gpt-image-slide-design/SKILL.md`
+- `skills/slide-design/SKILL.md`
 - `skills/gpt-image-slide-plan/SKILL.md`
 - `skills/gpt-image-slide-prompt/SKILL.md`
 - `skills/gpt-image-slide-render/SKILL.md`
@@ -237,7 +237,7 @@ This bundle includes:
 
 ## Current skill responsibilities
 
-### `gpt-image-slide-design`
+### `slide-design`
 - extracts design theme, placement rules, header/body/footer flow, title/body/end-page behavior
 - captures icon usage, infographic card logic, table/chart treatment, and diagram behavior
 
@@ -291,7 +291,7 @@ Codex skills directory:
 
 ```bash
 mkdir -p ~/.codex/skills
-cp -R skills/gpt-image-slide-design ~/.codex/skills/
+cp -R skills/slide-design ~/.codex/skills/
 cp -R skills/gpt-image-slide-plan ~/.codex/skills/
 cp -R skills/gpt-image-slide-prompt ~/.codex/skills/
 cp -R skills/gpt-image-slide-render ~/.codex/skills/
