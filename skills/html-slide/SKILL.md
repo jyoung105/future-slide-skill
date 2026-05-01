@@ -14,7 +14,7 @@ Use this skill when the user asks for the full HTML slide workflow, for example:
 
 This is the HTML orchestrator. If the user asks for only one step, use the matching step skill instead:
 
-- `$html-slide-design` for `DESIGN.md`
+- `$slide-design` for `DESIGN.md`
 - `$html-slide-plan` for `slide_plan.json`
 - `$html-slide-prompt` for `html_slide_prompts.json`
 - `$html-slide-render` for final HTML/CSS/JS slide files
