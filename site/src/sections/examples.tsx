@@ -22,24 +22,24 @@ export function Examples() {
         <ShellComment># 1) {t("examples.c1")}</ShellComment>
         {"\n"}
         <ShellPrompt />
-        gpt-slide-design [reference slide image]
+        slide-design [reference slide image]
         {"\n\n"}
         <ShellComment># 2) {t("examples.c2")}</ShellComment>
         {"\n"}
         <ShellPrompt />
-        gpt-slide-plan /path/to/report.pdf
+        gpt-image-slide-plan /path/to/report.pdf
         {"\n  "}
         {t("examples.c2note")}
         {"\n\n"}
         <ShellComment># 3) {t("examples.c3")}</ShellComment>
         {"\n"}
         <ShellPrompt />
-        gpt-slide-prompt
+        gpt-image-slide-prompt
         {"\n\n"}
         <ShellComment># 4) {t("examples.c4")}</ShellComment>
         {"\n"}
         <ShellPrompt />
-        gpt-slide-generate
+        gpt-image-slide-render
       </CodeBlock>
 
       <ol
