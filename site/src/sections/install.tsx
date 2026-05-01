@@ -27,13 +27,13 @@ export function Install() {
             <ShellPrompt />
             mkdir -p ~/.codex/skills{"\n"}
             <ShellPrompt />
-            cp -R skills/gpt-slide-design ~/.codex/skills/{"\n"}
+            cp -R skills/slide-design ~/.codex/skills/{"\n"}
             <ShellPrompt />
-            cp -R skills/gpt-slide-plan ~/.codex/skills/{"\n"}
+            cp -R skills/gpt-image-slide-plan ~/.codex/skills/{"\n"}
             <ShellPrompt />
-            cp -R skills/gpt-slide-prompt ~/.codex/skills/{"\n"}
+            cp -R skills/gpt-image-slide-prompt ~/.codex/skills/{"\n"}
             <ShellPrompt />
-            cp -R skills/gpt-slide-generate ~/.codex/skills/
+            cp -R skills/gpt-image-slide-render ~/.codex/skills/
           </CodeBlock>
         </div>
       </div>
