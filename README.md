@@ -43,6 +43,28 @@ So this bundle separates responsibilities:
 - **`gpt-slide-prompt`** → convert that plan into detailed page prompts
 - **`gpt-slide-generate`** → generate slide images sequentially and save them with page-number filenames
 
+## New command families
+
+Use the newer command families when you want to choose the output mode explicitly.
+
+### GPT image slide commands
+
+- **`$gpt-image-slide`** → run the full image workflow: design → plan → prompt → render
+- **`$gpt-image-slide-design`** → only create `DESIGN.md`
+- **`$gpt-image-slide-plan`** → only create `slide_plan.json`
+- **`$gpt-image-slide-prompt`** → only create `slide_prompts.json`
+- **`$gpt-image-slide-render`** → only render `page_1.png ... page_N.png`
+
+### HTML slide commands
+
+- **`$html-slide`** → run the full HTML workflow: design → plan → prompt → render
+- **`$html-slide-design`** → only create browser-implementable `DESIGN.md`
+- **`$html-slide-plan`** → only create `slide_plan.json`
+- **`$html-slide-prompt`** → only create `html_slide_prompts.json`
+- **`$html-slide-render`** → only build the HTML slide deck
+
+The older `gpt-slide-*` commands are still present for compatibility.
+
 ## Recommended workflow
 
 Use the skills in this exact sequence:
