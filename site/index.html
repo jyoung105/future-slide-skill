@@ -158,7 +158,11 @@
       // Pre-paint theme & locale to prevent flash.
       (function () {
         try {
-          var t = localStorage.getItem("fss-theme") || "light";
+          var savedTheme = localStorage.getItem("fss-theme");
+          var t =
+            savedTheme === "dark" || savedTheme === "light"
+              ? savedTheme
+              : "light";
           var root = document.documentElement;
           root.classList.remove("light", "dark");
           root.classList.add(t);
@@ -174,7 +178,9 @@
             if (el) el.setAttribute("href", base + favicons[id]);
           });
 
-          var l = localStorage.getItem("fss-locale");
+          var savedLocale = localStorage.getItem("fss-locale");
+          var l =
+            savedLocale === "ko" || savedLocale === "en" ? savedLocale : "";
           if (!l) {
             var nav = (navigator.language || "en").toLowerCase();
             l = nav.startsWith("ko") ? "ko" : "en";

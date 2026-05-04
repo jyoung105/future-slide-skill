@@ -5,6 +5,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { useMountEffect } from "@/lib/use-mount-effect";
 
 type Theme = "light" | "dark";
 const STORAGE_KEY = "fss-theme";
@@ -41,18 +42,22 @@ function applyTheme(t: Theme) {
 
 function readInitialTheme(): Theme {
   if (typeof document === "undefined") return "light";
-  const cls = document.documentElement.classList;
-  if (cls.contains("dark")) return "dark";
-  if (cls.contains("light")) return "light";
   try {
     const v = localStorage.getItem(STORAGE_KEY);
     if (v === "dark" || v === "light") return v;
   } catch {}
+  const cls = document.documentElement.classList;
+  if (cls.contains("dark")) return "dark";
+  if (cls.contains("light")) return "light";
   return "light";
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(readInitialTheme);
+
+  useMountEffect(() => {
+    applyTheme(theme);
+  });
 
   const setTheme = useCallback((t: Theme) => {
     applyTheme(t);
