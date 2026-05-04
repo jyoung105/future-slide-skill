@@ -5,6 +5,7 @@ import {
   Scales,
 } from "@phosphor-icons/react";
 import { useLocale } from "@/i18n/use-locale";
+import { PROJECT_META } from "@/lib/project-meta";
 
 export function Hero() {
   const { t } = useLocale();
@@ -17,14 +18,14 @@ export function Hero() {
       <div className="home-dimmable-block flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-neutral-500 dark:text-neutral-300 dark:opacity-80">
         <span className="inline-flex items-center gap-1.5">
           <Clock className="h-3 w-3" weight="regular" aria-hidden />
-          <span>v0.0.2</span>
+          <span>v{PROJECT_META.version}</span>
         </span>
         <span aria-hidden className="text-neutral-300 dark:text-neutral-600">
           |
         </span>
         <span className="inline-flex items-center gap-1.5">
           <Scales className="h-3 w-3" weight="regular" aria-hidden />
-          <span>Apache-2.0</span>
+          <span>{PROJECT_META.license}</span>
         </span>
       </div>
 
@@ -41,7 +42,7 @@ export function Hero() {
 
       <div className="home-dimmable-block flex items-center">
         <a
-          href="https://github.com/jyoung105/future-slide-skill"
+          href={PROJECT_META.githubUrl}
           target="_blank"
           rel="noreferrer noopener"
           className="blog-forward-link group inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-accent-foreground dark:hover:text-accent-foreground"

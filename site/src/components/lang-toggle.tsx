@@ -1,4 +1,5 @@
 import { Translate } from "@phosphor-icons/react";
+import { ICON_BUTTON_CLASS } from "@/components/icon-button";
 import { useLocale } from "@/i18n/use-locale";
 
 export function LangToggle() {
@@ -10,7 +11,7 @@ export function LangToggle() {
       onClick={() => setLocale(locale === "ko" ? "en" : "ko")}
       aria-label={label}
       title={label}
-      className="cursor-pointer inline-flex items-center justify-center size-9 rounded-md text-neutral-500 hover:text-neutral-900 hover:bg-neutral-200 dark:text-neutral-300 dark:hover:text-white dark:hover:bg-neutral-700 transition-colors"
+      className={ICON_BUTTON_CLASS}
     >
       <Translate className="h-4 w-4" weight="regular" aria-hidden />
     </button>
