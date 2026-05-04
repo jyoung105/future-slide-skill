@@ -2,16 +2,17 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useMemo,
   useState,
   type ReactNode,
 } from "react";
+import { useMountEffect } from "@/lib/use-mount-effect";
 import {
   DEFAULT_LOCALE,
   SUPPORTED_LOCALES,
   translations,
   type Locale,
+  type TranslationKey,
 } from "./translations";
 
 const STORAGE_KEY = "fss-locale";
@@ -44,26 +45,33 @@ function readInitialLocale(): Locale {
 interface LocaleContextValue {
   locale: Locale;
   setLocale: (l: Locale) => void;
-  t: (key: string) => string;
+  t: (key: TranslationKey) => string;
 }
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
 
+function applyLocale(locale: Locale) {
+  document.documentElement.setAttribute("lang", locale);
+  document.title = translations[locale]["meta.title"];
+  try {
+    localStorage.setItem(STORAGE_KEY, locale);
+  } catch {}
+}
+
 export function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(readInitialLocale);
 
-  useEffect(() => {
-    document.documentElement.setAttribute("lang", locale);
-    document.title = translations[locale]["meta.title"] ?? document.title;
-    try {
-      localStorage.setItem(STORAGE_KEY, locale);
-    } catch {}
-  }, [locale]);
+  useMountEffect(() => {
+    applyLocale(locale);
+  });
 
-  const setLocale = useCallback((l: Locale) => setLocaleState(l), []);
+  const setLocale = useCallback((l: Locale) => {
+    applyLocale(l);
+    setLocaleState(l);
+  }, []);
 
   const t = useCallback(
-    (key: string) => translations[locale][key] ?? translations.en[key] ?? key,
+    (key: TranslationKey) => translations[locale][key],
     [locale],
   );
 

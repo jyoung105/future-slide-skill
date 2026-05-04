@@ -1,8 +1,6 @@
 export type Locale = "en" | "ko";
 
-type Dict = Record<string, string>;
-
-const en: Dict = {
+const en = {
   "meta.title": "future-slide | Reusable slide-generation AI skill",
   "a11y.skip": "Skip to content",
   "a11y.themeToDark": "Switch to dark mode",
@@ -84,9 +82,12 @@ const en: Dict = {
 
   "footer.license": "Apache-2.0 licensed.",
   "footer.builtBy": "Built by",
-};
+} as const;
 
-const ko: Dict = {
+export type TranslationKey = keyof typeof en;
+type Dict = Record<TranslationKey, string>;
+
+const ko = {
   "meta.title":
     "future-slide | Reusable slide-generation AI skill",
   "a11y.skip": "본문으로 이동",
@@ -171,7 +172,7 @@ const ko: Dict = {
 
   "footer.license": "Apache-2.0 라이선스.",
   "footer.builtBy": "제작:",
-};
+} satisfies Dict;
 
 export const translations: Record<Locale, Dict> = { en, ko };
 export const SUPPORTED_LOCALES: readonly Locale[] = ["en", "ko"] as const;
