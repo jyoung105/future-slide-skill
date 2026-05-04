@@ -22,7 +22,6 @@ const THEME_ASSETS = {
   "favicon-32": "favicon-32x32.png",
   "favicon-16": "favicon-16x16.png",
   "apple-touch-icon": "apple-touch-icon.png",
-  "site-webmanifest": "site.webmanifest",
 } as const;
 
 function applyTheme(t: Theme) {
