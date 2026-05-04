@@ -3,7 +3,9 @@ import { useLocale } from "@/i18n/use-locale";
 export function Flow() {
   const { locale, t } = useLocale();
   const src =
-    locale === "ko" ? "/four-skill-flow_ko.png" : "/four-skill-flow.png";
+    locale === "ko"
+      ? "/diagram/four-skill-flow_ko.png"
+      : "/diagram/four-skill-flow.png";
   return (
     <section className="space-y-4">
       <figure className="m-0">
