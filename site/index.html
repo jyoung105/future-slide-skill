@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,10 +8,7 @@
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
 
     <title>future-slide | Reusable slide-generation AI skill</title>
-    <meta
-      name="description"
-      content="future-slide | Reusable slide-generation AI skill"
-    />
+    <meta name="description" content="future-slide | Reusable slide-generation AI skill" />
     <meta
       name="keywords"
       content="future-slide, future slide skill, codex skill, slide generation, deck generation, gpt-slide-design, gpt-slide-plan, gpt-slide-prompt, gpt-slide-generate, AI slide deck, presentation AI, Tony Lee"
@@ -19,15 +16,12 @@
     <meta name="author" content="Tony Lee" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow" />
-    <meta name="generator" content="Vite + React" />
+    <meta name="generator" content="Vite" />
 
-    <!-- Canonical + hreflang -->
     <link rel="canonical" href="https://future-slide.tonylee.im/" />
     <link rel="alternate" hreflang="en" href="https://future-slide.tonylee.im/" />
     <link rel="alternate" hreflang="ko" href="https://future-slide.tonylee.im/" />
     <link rel="alternate" hreflang="x-default" href="https://future-slide.tonylee.im/" />
-
-    <!-- AEO / LLM discovery -->
     <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
     <link id="favicon-ico" rel="icon" href="/logo/light/favicon.ico" sizes="any" />
@@ -36,7 +30,6 @@
     <link id="apple-touch-icon" rel="apple-touch-icon" href="/logo/light/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="future-slide" />
     <meta property="og:url" content="https://future-slide.tonylee.im/" />
@@ -44,15 +37,12 @@
     <meta property="og:description" content="future-slide | Reusable slide-generation AI skill" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="ko_KR" />
-
-    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@jeongmin1604" />
     <meta name="twitter:creator" content="@jeongmin1604" />
     <meta name="twitter:title" content="future-slide | Reusable slide-generation AI skill" />
     <meta name="twitter:description" content="future-slide | Reusable slide-generation AI skill" />
 
-    <!-- JSON-LD: SoftwareApplication + SoftwareSourceCode + FAQPage + WebSite -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -80,11 +70,7 @@
             "programmingLanguage": ["Markdown", "JSON"],
             "description": "A reusable Codex skill bundle that turns a reference slide image, user files, and a deck request into a disciplined four-stage slide-generation workflow: gpt-slide-design, gpt-slide-plan, gpt-slide-prompt, gpt-slide-generate.",
             "author": { "@id": "https://tonylee.im/#person" },
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
           },
           {
             "@type": "Person",
@@ -112,26 +98,10 @@
               },
               {
                 "@type": "Question",
-                "name": "Why split slide generation into four skills?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A single prompt skips the design step, mixes analysis with strategy, loses cross-slide consistency, overfits to visible reference text, and stops without rendering. Splitting enforces theme-first, story-second, page-prompts-third, generation-last."
-                }
-              },
-              {
-                "@type": "Question",
                 "name": "How do I install future-slide?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Run `npx skills add jyoung105/future-slide-skill` (Node.js 18+), or copy the four skill folders into ~/.codex/skills/ and restart Codex."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What artifacts does future-slide produce?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "DESIGN.md, slide_plan.json, slide_prompts.json, then page_1.png through page_N.png saved sequentially with stable page-numbered filenames."
                 }
               }
             ]
@@ -144,54 +114,203 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600&family=Poppins:wght@400;500;600&family=Source+Serif+4:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css"
+      href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT@2/fonts/variable/woff2/SUIT-Variable.css"
     />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+    <link rel="stylesheet" href="/src/style.css" />
     <script>
-      // Pre-paint theme & locale to prevent flash.
       (function () {
         try {
-          var savedTheme = localStorage.getItem("fss-theme");
-          var t =
-            savedTheme === "dark" || savedTheme === "light"
-              ? savedTheme
-              : "light";
-          var root = document.documentElement;
-          root.classList.remove("light", "dark");
-          root.classList.add(t);
-          var base = "/logo/" + t + "/";
-          var favicons = {
-            "favicon-ico": "favicon.ico",
-            "favicon-32": "favicon-32x32.png",
-            "favicon-16": "favicon-16x16.png",
-            "apple-touch-icon": "apple-touch-icon.png"
-          };
-          Object.keys(favicons).forEach(function (id) {
-            var el = document.getElementById(id);
-            if (el) el.setAttribute("href", base + favicons[id]);
-          });
-
-          var savedLocale = localStorage.getItem("fss-locale");
-          var l =
-            savedLocale === "ko" || savedLocale === "en" ? savedLocale : "";
-          if (!l) {
-            var nav = (navigator.language || "en").toLowerCase();
-            l = nav.startsWith("ko") ? "ko" : "en";
+          var theme = localStorage.getItem("fss-theme") || "light";
+          document.documentElement.classList.toggle("dark", theme === "dark");
+          var locale = localStorage.getItem("fss-locale");
+          if (locale !== "en" && locale !== "ko") {
+            locale = (navigator.language || "en").toLowerCase().startsWith("ko") ? "ko" : "en";
           }
-          root.setAttribute("lang", l);
-        } catch (e) {}
+          document.documentElement.setAttribute("lang", locale);
+        } catch (error) {}
       })();
     </script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <a href="#main" class="skip-link" data-i18n="a11y.skip">Skip to content</a>
+
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a href="https://tonylee.im" target="_blank" rel="noreferrer noopener" class="header-link">tony</a>
+        <div class="header-actions">
+          <a href="https://github.com/jyoung105/future-slide-skill" target="_blank" rel="noreferrer noopener" aria-label="GitHub" title="GitHub" class="icon-btn">
+            <i class="ph ph-github-logo" aria-hidden="true"></i>
+          </a>
+          <button id="lang-toggle" type="button" class="icon-btn" aria-label="Toggle language" title="Toggle language">
+            <i class="ph ph-translate" aria-hidden="true"></i>
+          </button>
+          <button id="theme-toggle" type="button" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">
+            <i class="ph ph-moon icon-moon" aria-hidden="true"></i>
+            <i class="ph ph-sun icon-sun" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="page home-content">
+      <section class="section hero">
+        <h1 class="wordmark force-english-grotesk home-dimmable-block">future-slide</h1>
+        <div class="meta-row home-dimmable-block">
+          <span class="meta-item"><i class="ph ph-clock meta-icon" aria-hidden="true"></i><span>v0.0.2</span></span>
+          <span class="meta-sep" aria-hidden="true">|</span>
+          <span class="meta-item"><i class="ph ph-scales meta-icon" aria-hidden="true"></i><span>Apache-2.0</span></span>
+        </div>
+        <div class="lede home-dimmable-block">
+          <p>
+            <span class="lede-strong" data-i18n="hero.titleA">Disciplined slide generation,</span>
+            <span data-i18n="hero.titleB">one stage at a time.</span><br />
+            <span data-i18n="hero.lede">Future Slide Skill turns a reference slide image, your files, and a deck request into a strict four-stage workflow, so GPT-class models stop skipping steps and collapsing into generic decks.</span>
+          </p>
+        </div>
+        <div class="hero-links home-dimmable-block">
+          <a href="https://github.com/jyoung105/future-slide-skill" target="_blank" rel="noreferrer noopener" class="forward-link">
+            <i class="ph ph-github-logo fwd-icon" aria-hidden="true"></i>
+            <span data-i18n="hero.ctaSkill">View skill</span>
+            <i class="ph ph-arrow-right fwd-arrow" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+
+      <section class="section flow-section">
+        <figure class="flow-figure">
+          <img id="flow-diagram" src="/diagram/four-skill-flow.png" alt="Four-stage future-slide workflow diagram" loading="lazy" decoding="async" />
+        </figure>
+      </section>
+
+      <section id="workflow" class="section">
+        <h2 class="section-label force-english-serif home-dimmable-block" data-i18n="workflow.title">Four skills, one disciplined pipeline.</h2>
+        <div class="list">
+          <div class="list-item home-dimmable-item">
+            <div class="featured-link">
+              <div class="list-item-head"><span class="list-num">01</span><h3 class="list-title force-english-serif">slide-design</h3><span class="tag-pill">DESIGN.md</span></div>
+              <p class="list-desc" data-i18n="workflow.s1.body">Extract a reusable DESIGN.md from a reference slide image: placement, header/body/footer flow, title/body/end-page behavior, icon usage, infographic cards, and diagram rules.</p>
+              <p class="item-meta"><span data-i18n="workflow.in">Inputs</span> · <span data-i18n="workflow.s1.in">Reference slide image(s)</span></p>
+            </div>
+          </div>
+          <div class="list-item home-dimmable-item">
+            <div class="featured-link">
+              <div class="list-item-head"><span class="list-num">02</span><h3 class="list-title force-english-serif">gpt-image-slide-plan</h3><span class="tag-pill">slide_plan.json</span></div>
+              <p class="list-desc" data-i18n="workflow.s2.body">Build the storyline and page-family rhythm. Decide where tables, charts, icon-led modules, and comparison exhibits belong. Map evidence to slides.</p>
+              <p class="item-meta"><span data-i18n="workflow.in">Inputs</span> · <span data-i18n="workflow.s2.in">DESIGN.md · user files · goal & audience</span></p>
+            </div>
+          </div>
+          <div class="list-item home-dimmable-item">
+            <div class="featured-link">
+              <div class="list-item-head"><span class="list-num">03</span><h3 class="list-title force-english-serif">gpt-image-slide-prompt</h3><span class="tag-pill">slide_prompts.json</span></div>
+              <p class="list-desc" data-i18n="workflow.s3.body">Convert the plan into strict per-page prompt JSON. Make layout family, zoning, and anti-generic constraints explicit for every page.</p>
+              <p class="item-meta"><span data-i18n="workflow.in">Inputs</span> · <span data-i18n="workflow.s3.in">DESIGN.md · slide_plan.json</span></p>
+            </div>
+          </div>
+          <div class="list-item home-dimmable-item">
+            <div class="featured-link">
+              <div class="list-item-head"><span class="list-num">04</span><h3 class="list-title force-english-serif">gpt-image-slide-render</h3><span class="tag-pill">page_1.png ... page_N.png</span></div>
+              <p class="list-desc" data-i18n="workflow.s4.body">Render slide images one by one with Codex native image generation. Save project-bound assets explicitly with stable, page-numbered filenames.</p>
+              <p class="item-meta"><span data-i18n="workflow.in">Inputs</span> · <span data-i18n="workflow.s4.in">DESIGN.md · slide_prompts.json</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="why" class="section">
+        <h2 class="section-label force-english-serif home-dimmable-block" data-i18n="why.title">A single prompt fails in predictable ways.</h2>
+        <p class="section-sub" data-i18n="why.sub">So this bundle separates responsibilities. Theme first. Story second. Page-level prompts third. Generation last, with explicit, numbered outputs.</p>
+        <ul class="bullet-list">
+          <li class="bullet-item home-dimmable-item"><i class="ph-bold ph-x bullet-icon" aria-hidden="true"></i><span data-i18n="why.p1">Starts writing slides before the theme is extracted.</span></li>
+          <li class="bullet-item home-dimmable-item"><i class="ph-bold ph-x bullet-icon" aria-hidden="true"></i><span data-i18n="why.p2">Mixes design analysis with deck strategy.</span></li>
+          <li class="bullet-item home-dimmable-item"><i class="ph-bold ph-x bullet-icon" aria-hidden="true"></i><span data-i18n="why.p3">Produces page prompts without a real narrative arc.</span></li>
+          <li class="bullet-item home-dimmable-item"><i class="ph-bold ph-x bullet-icon" aria-hidden="true"></i><span data-i18n="why.p4">Loses layout consistency across body slides.</span></li>
+          <li class="bullet-item home-dimmable-item"><i class="ph-bold ph-x bullet-icon" aria-hidden="true"></i><span data-i18n="why.p5">Overfits to visible text, not the slide design system.</span></li>
+          <li class="bullet-item home-dimmable-item"><i class="ph-bold ph-x bullet-icon" aria-hidden="true"></i><span data-i18n="why.p6">Stops after writing prompts, never renders numbered slides.</span></li>
+        </ul>
+      </section>
+
+      <section id="examples" class="section">
+        <h2 class="section-label force-english-serif home-dimmable-block" data-i18n="examples.title">A typical end-to-end run.</h2>
+        <p class="section-sub" data-i18n="examples.sub">Drop a reference image, point at a PDF, and let each skill stay in its lane.</p>
+        <div class="terminal-block">
+          <div class="terminal-bar"><span class="tdot tdot-r"></span><span class="tdot tdot-y"></span><span class="tdot tdot-g"></span><span class="terminal-title">end-to-end</span></div>
+          <pre class="terminal-body"><span class="shell-comment"># 1) <span data-i18n="examples.c1">Extract design system from reference slide</span></span>
+<span class="prompt">$</span> slide-design [reference slide image]
+
+<span class="shell-comment"># 2) <span data-i18n="examples.c2">Build the deck plan from a real source document</span></span>
+<span class="prompt">$</span> gpt-image-slide-plan /path/to/report.pdf
+  <span data-i18n="examples.c2note">Create a full Korean research-summary deck.</span>
+
+<span class="shell-comment"># 3) <span data-i18n="examples.c3">Convert the plan into strict per-page prompts</span></span>
+<span class="prompt">$</span> gpt-image-slide-prompt
+
+<span class="shell-comment"># 4) <span data-i18n="examples.c4">Render slides sequentially</span></span>
+<span class="prompt">$</span> gpt-image-slide-render</pre>
+        </div>
+        <ol class="artifact-chain" aria-label="artifact chain">
+          <li class="tag-pill">DESIGN.md</li><li aria-hidden="true">→</li>
+          <li class="tag-pill">slide_plan.json</li><li aria-hidden="true">→</li>
+          <li class="tag-pill">slide_prompts.json</li><li aria-hidden="true">→</li>
+          <li class="tag-pill">page_1.png ... page_N.png</li>
+        </ol>
+      </section>
+
+      <section id="install" class="section">
+        <h2 class="section-label force-english-serif home-dimmable-block" data-i18n="install.title">Install once. Restart Codex. Ship decks.</h2>
+        <div>
+          <p class="install-kicker"><span data-i18n="install.cliTitle">With the Skills CLI</span> · <span data-i18n="install.cliBody">Requires Node.js 18+.</span></p>
+          <div class="terminal-block">
+            <div class="terminal-bar"><span class="tdot tdot-r"></span><span class="tdot tdot-y"></span><span class="tdot tdot-g"></span><span class="terminal-title">terminal</span><button class="terminal-copy copy-btn" type="button" data-copy="npx skills add jyoung105/future-slide-skill" aria-label="Copy command"><i class="ph ph-copy-simple copy-icon" aria-hidden="true"></i><i class="ph ph-check check-icon" aria-hidden="true"></i></button></div>
+            <pre class="terminal-body"><span class="prompt">$</span> npx skills add jyoung105/future-slide-skill</pre>
+          </div>
+        </div>
+        <div>
+          <p class="install-kicker"><span data-i18n="install.manualTitle">Manual install</span> · <span data-i18n="install.manualBody">Copy each skill folder into your Codex skills directory.</span></p>
+          <div class="terminal-block">
+            <div class="terminal-bar"><span class="tdot tdot-r"></span><span class="tdot tdot-y"></span><span class="tdot tdot-g"></span><span class="terminal-title">terminal</span></div>
+            <pre class="terminal-body"><span class="prompt">$</span> mkdir -p ~/.codex/skills
+<span class="prompt">$</span> cp -R skills/slide-design ~/.codex/skills/
+<span class="prompt">$</span> cp -R skills/gpt-image-slide-plan ~/.codex/skills/
+<span class="prompt">$</span> cp -R skills/gpt-image-slide-prompt ~/.codex/skills/
+<span class="prompt">$</span> cp -R skills/gpt-image-slide-render ~/.codex/skills/</pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-label force-english-serif home-dimmable-block" data-i18n="opt.title">Stricter enforcement, not more decoration.</h2>
+        <ul class="bullet-list">
+          <li class="bullet-item home-dimmable-item"><i class="ph-bold ph-check bullet-icon" aria-hidden="true"></i><span data-i18n="opt.l1">Theme extraction first, content second.</span></li>
+          <li class="bullet-item home-dimmable-item"><i class="ph-bold ph-check bullet-icon" aria-hidden="true"></i><span data-i18n="opt.l2">Strong cross-slide consistency.</span></li>
+          <li class="bullet-item home-dimmable-item"><i class="ph-bold ph-check bullet-icon" aria-hidden="true"></i><span data-i18n="opt.l3">Persuasive story flow with explicit evidence mapping.</span></li>
+          <li class="bullet-item home-dimmable-item"><i class="ph-bold ph-check bullet-icon" aria-hidden="true"></i><span data-i18n="opt.l4">Reusable layout families and body-slide discipline.</span></li>
+          <li class="bullet-item home-dimmable-item"><i class="ph-bold ph-check bullet-icon" aria-hidden="true"></i><span data-i18n="opt.l5">Header/body/footer zoning with role-clear icons & charts.</span></li>
+          <li class="bullet-item home-dimmable-item"><i class="ph-bold ph-check bullet-icon" aria-hidden="true"></i><span data-i18n="opt.l6">Sequential image generation with stable numbering.</span></li>
+          <li class="bullet-item home-dimmable-item"><i class="ph-bold ph-check bullet-icon" aria-hidden="true"></i><span data-i18n="opt.l7">No hallucinated rules when the reference is ambiguous.</span></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <span class="footer-item"><i class="ph ph-scales" aria-hidden="true"></i><span>Apache-2.0</span></span>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a href="https://github.com/jyoung105/future-slide-skill" target="_blank" rel="noreferrer noopener" class="footer-item"><i class="ph ph-github-logo" aria-hidden="true"></i><span>GitHub</span></a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <span class="footer-copy">© 2026 <a href="https://tonylee.im" target="_blank" rel="noreferrer noopener" class="footer-tony">Tony</a>. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
