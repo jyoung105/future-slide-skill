@@ -2,7 +2,7 @@
 
 [English](./README.md) | [한국어](./README.ko.md)
 
-![Version](https://img.shields.io/badge/version-0.0.2-333333?style=flat-square)
+![Version](https://img.shields.io/badge/version-v0.0.3-333333?style=flat-square)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-yellow.svg)](./LICENSE)
 
 바로가기: [사용 흐름](#기본-사용-흐름) |
