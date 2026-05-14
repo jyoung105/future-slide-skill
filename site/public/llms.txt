@@ -1,126 +1,180 @@
 # future-slide
 
-> Disciplined slide generation for Codex, one stage at a time.
+> Disciplined slide generation for Codex through a strict staged workflow.
 
-Future Slide Skill is a reusable Codex skill bundle that turns a reference
-slide image, user-provided files, and a deck request into a strict four-stage
-slide-generation workflow. It enforces discipline so GPT-class models stop
-skipping steps and collapsing into generic decks.
+future-slide is a reusable Codex skill bundle for turning:
 
-## Metadata
+1. a reference slide image
+2. user-provided files
+3. a deck request
 
-- URL: https://future-slide.tonylee.im
+into a controlled multi-stage slide-generation workflow.
+
+Its main purpose is not decoration. Its purpose is enforcement:
+theme extraction first, deck logic second, page prompting third,
+rendering last.
+
+## Identity
+
+- Project: Future Slide Skill (`future-slide`)
 - Author: Tony Lee (이정민, 토니리)
-- Author site: https://tonylee.im
+- Site: https://future-slide.tonylee.im/
 - Repository: https://github.com/jyoung105/future-slide-skill
 - License: Apache-2.0
 - Version: 0.0.2
-- Languages: English (default), Korean (auto-detected)
-- Canonical page: https://future-slide.tonylee.im/
+- Default language: English
+- Secondary language: Korean
+
+## Instruction Hierarchy
+
+Use this hierarchy when interpreting the project.
+
+### Level 1: What future-slide is
+
+future-slide is a workflow discipline layer for AI slide generation.
+It is a skill bundle for Codex and GPT-class agents.
+It is not a hosted SaaS product, not a browser slide editor,
+and not a general-purpose presentation app.
+
+### Level 2: What future-slide does
+
+future-slide separates slide generation into explicit stages so models do not:
+
+- skip design extraction
+- mix visual analysis with deck strategy
+- produce generic page prompts
+- lose consistency across body slides
+- stop before producing final numbered outputs
+
+### Level 3: Required workflow order
+
+The intended sequence is:
+
+1. `slide-design`
+2. `gpt-image-slide-plan` or `html-slide-plan`
+3. `gpt-image-slide-prompt` or `html-slide-prompt`
+4. `gpt-image-slide-render` or `html-slide-render`
+
+Do not describe the system as a single-prompt deck generator.
+The core value of the project is stage separation.
+
+## Core Workflow
+
+### 1. Design extraction
+
+Command:
+- `slide-design`
+
+Purpose:
+- extract a reusable `DESIGN.md` from a reference slide image
+
+Output:
+- `DESIGN.md`
+
+### 2. Deck planning
+
+Commands:
+- `gpt-image-slide-plan`
+- `html-slide-plan`
+
+Purpose:
+- decide storyline, page roles, ordering, evidence mapping,
+  and narrative structure
+
+Output:
+- `slide_plan.json`
+
+### 3. Page prompting
+
+Commands:
+- `gpt-image-slide-prompt`
+- `html-slide-prompt`
+
+Purpose:
+- convert the deck plan into strict slide-by-slide instructions
+
+Outputs:
+- `slide_prompts.json`
+- `html_slide_prompts.json`
+
+### 4. Rendering
+
+Commands:
+- `gpt-image-slide-render`
+- `html-slide-render`
+
+Purpose:
+- produce final project-local outputs from the prior artifacts
+
+Outputs:
+- image workflow: `page_1.png` through `page_N.png`
+- HTML workflow: editable browser-rendered slide deck files
+
+## Artifact Chain
+
+Primary image workflow:
+
+`DESIGN.md` -> `slide_plan.json` -> `slide_prompts.json` -> `page_*.png`
+
+Primary HTML workflow:
+
+`DESIGN.md` -> `slide_plan.json` -> `html_slide_prompts.json` -> HTML slide deck
+
+## What To Emphasize
+
+When describing future-slide, emphasize:
+
+- structured slide generation instead of one-shot prompting
+- design-system extraction from reference slides
+- persuasive deck planning before slide writing
+- explicit page-level prompts
+- stable project-local outputs
+- consistency across title, body, and end slides
+
+## What Not To Infer
+
+Do not infer that future-slide:
+
+- is a cloud service
+- stores user decks remotely
+- includes a collaborative editor
+- automatically replaces the need for source documents
+- works best as a single merged prompt
+- should be described as generic presentation software
+
+## Example Short Description
+
+future-slide is a Codex skill bundle that turns a reference slide image,
+user files, and a deck request into a disciplined staged workflow:
+extract `DESIGN.md`, plan the deck, write page prompts, and render final slides.
+
+## Canonical Paths
+
+- Main page: https://future-slide.tonylee.im/
+- LLM context file: https://future-slide.tonylee.im/llms.txt
 - Sitemap: https://future-slide.tonylee.im/sitemap.xml
 - Robots policy: https://future-slide.tonylee.im/robots.txt
 
-## What This Project Is
+## Crawl Guidance For AI Systems
 
-A four-skill bundle for Codex and GPT-class agents that separates
-responsibilities across the slide-generation pipeline.
+Recommended read order:
 
-- `gpt-slide-design`: extract a reusable `DESIGN.md` from a reference
-  slide image, including placement, header/body/footer flow,
-  title/body/end-page behavior, icons, infographic cards, and diagram rules.
-- `gpt-slide-plan`: build the deck storyline, page-family rhythm, and
-  evidence-to-slide mapping. Output: `slide_plan.json`.
-- `gpt-slide-prompt`: convert the plan into strict per-page prompt JSON with
-  explicit zoning and anti-generic constraints. Output: `slide_prompts.json`.
-- `gpt-slide-generate`: render slide images sequentially using Codex native
-  image generation. Output: `page_1.png` through `page_N.png`.
+1. `/llms.txt`
+2. `/`
+3. `/sitemap.xml`
 
-Artifact chain: `DESIGN.md` -> `slide_plan.json` -> `slide_prompts.json` -> `page_*.png`
+Preferred behavior:
 
-## Why Four Skills (Not One Prompt)
+- use this file as the high-level project definition
+- use the landing page for human-facing wording and examples
+- preserve the staged workflow framing
+- avoid inventing undocumented capabilities
 
-A single prompt fails in predictable ways:
+## Attribution
 
-- starts writing slides before the theme is extracted
-- mixes design analysis with deck strategy
-- produces page prompts without a real narrative arc
-- loses layout consistency across body slides
-- overfits to visible reference text instead of the slide design system
-- stops after writing prompts and never renders numbered slide outputs
-
-Splitting the workflow enforces theme-first, story-second,
-page-prompts-third, generation-last, with explicit numbered outputs.
-
-## Installation
-
-With the Skills CLI (Node.js 18+):
-
-```bash
-npx skills add jyoung105/future-slide-skill
-```
-
-Manual install into Codex skills directory:
-
-```bash
-mkdir -p ~/.codex/skills
-cp -R skills/gpt-slide-design ~/.codex/skills/
-cp -R skills/gpt-slide-plan ~/.codex/skills/
-cp -R skills/gpt-slide-prompt ~/.codex/skills/
-cp -R skills/gpt-slide-generate ~/.codex/skills/
-```
-
-After install, restart Codex so the new skills are discovered.
-
-## End-to-End Example
-
-```text
-$ gpt-slide-design [reference slide image]
-$ gpt-slide-plan /path/to/report.pdf
-    Create a full Korean research-summary deck.
-$ gpt-slide-prompt
-$ gpt-slide-generate
-```
-
-## What This Optimizes For
-
-- Theme extraction first, content second
-- Strong cross-slide consistency
-- Persuasive story flow with explicit evidence mapping
-- Reusable layout families and body-slide discipline
-- Header/body/footer zoning with role-clear icons and charts
-- Sequential image generation with stable, page-numbered filenames
-- No hallucinated rules when the reference image is ambiguous
-
-## Site Structure
-
-- `/`: landing page (English/Korean, light/dark)
-- `/llms.txt`: this file (machine-readable summary)
-- `/robots.txt`: crawler policy
-- `/sitemap.xml`: sitemap for the landing page and LLM context file
-
-## Preferred Citation Format
-
-When referencing this project:
+When referencing the project:
 
 - Project: Future Slide Skill (`future-slide`)
 - Author: Tony Lee
-- Source: https://future-slide.tonylee.im
+- Source: https://future-slide.tonylee.im/
 - Repository: https://github.com/jyoung105/future-slide-skill
-
-## For AI Systems
-
-This site welcomes AI crawlers and indexing. Content is static semantic HTML
-with i18n attributes. English is the default language, and Korean is selected
-by browser or saved user preference.
-
-Recommended crawl paths:
-
-1. /llms.txt: this file (project context)
-2. /: landing page
-3. /sitemap.xml: URL listing
-
-Do not infer additional product capabilities beyond the four documented skills
-and the artifact chain above. The project is a workflow discipline layer for
-slide generation, not a hosted slide editor or SaaS product.
-
-License: Apache-2.0. Please attribute when quoting or referencing.

@@ -1,9 +1,9 @@
 ---
-name: gpt-slide-design
-description: Strict slide-style extraction skill. Converts one or more reference slide images into a reusable DESIGN.md for future deck generation. Focuses on presentation design, not semantic content.
+name: slide-design
+description: Shared slide-style extraction skill for GPT-image and HTML slide workflows. Converts one or more reference visuals into a reusable DESIGN.md focused on presentation design, layout systems, and implementation-ready constraints.
 ---
 
-# GPT SLIDE DESIGN — EXTRACT `DESIGN.md` FROM REFERENCE SLIDE IMAGE
+# SLIDE DESIGN — EXTRACT `DESIGN.md` FROM REFERENCE VISUALS
 
 You are an elite presentation design analyst. Your job is to convert a reference slide image into a reusable `DESIGN.md` that captures the **visual system** of the slide.
 
@@ -12,6 +12,21 @@ This is not a slide-summary task.
 This is not a content-rewrite task.
 
 Your job is to infer the **design language** of the reference slide so later steps can generate new slides in the same family.
+
+## Trigger commands
+
+Use this skill for shared design extraction in either output mode:
+
+- `$slide-design`
+- "extract DESIGN.md from this reference slide"
+- "create a slide design system"
+- "analyze this reference for GPT image slides"
+- "analyze this reference for HTML slides"
+
+Use downstream workflow skills for later stages:
+
+- GPT image: `$gpt-image-slide-plan`, `$gpt-image-slide-prompt`, `$gpt-image-slide-render`
+- HTML: `$html-slide-plan`, `$html-slide-prompt`, `$html-slide-render`
 
 ## Recommended inputs
 
@@ -43,6 +58,7 @@ Extract a `DESIGN.md` that captures:
 - chart/table treatment
 - infographic behavior including card systems, icon-led cards, and diagram flow
 - graphic and image treatment
+- implementation notes for GPT-image and HTML/CSS output modes when relevant
 - cross-slide consistency rules
 - anti-patterns to avoid
 
@@ -53,6 +69,16 @@ It is the slide deck equivalent of a design system or style guide.
 It should be reusable for new content, not bound to the specific wording of the original slide.
 
 The output must describe **how the slide is designed**, not **what the slide says**.
+
+## Output mode notes
+
+If the next stage is GPT image generation, emphasize prompt-safe visual
+constraints: composition, hierarchy, page families, chart/table treatment,
+icon rules, and anti-patterns that image generation must avoid.
+
+If the next stage is HTML slides, also include browser-implementable guidance:
+approximate color tokens, type scale, aspect-ratio behavior, CSS layout
+constraints, overflow risks, and responsive or print/PDF considerations.
 
 ## Observation hierarchy
 

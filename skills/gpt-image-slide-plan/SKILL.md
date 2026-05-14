@@ -1,9 +1,9 @@
 ---
-name: gpt-slide-plan
-description: Persuasive deck-planning skill. Uses extracted DESIGN.md, user files, and the user's goal to decide slide ordering, page count, evidence placement, and narrative flow in JSON.
+name: gpt-image-slide-plan
+description: Persuasive GPT image deck-planning skill. Uses extracted DESIGN.md, user files, and the user's goal to decide slide ordering, page count, evidence placement, and narrative flow in JSON.
 ---
 
-# GPT SLIDE PLAN — BUILD THE DECK LOGIC BEFORE WRITING SLIDE PROMPTS
+# GPT IMAGE SLIDE PLAN — BUILD THE DECK LOGIC BEFORE WRITING SLIDE PROMPTS
 
 You are a presentation strategist. Your job is to decide what the deck should say, in what order, and why.
 
