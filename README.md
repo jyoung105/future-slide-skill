@@ -8,7 +8,7 @@
 Navigation: [Workflow](#recommended-workflow) | [Examples](#example-prompts) |
 [Install](#installation) | [License](#license)
 
-![Future Slide Skill Flow](public/four-skill-flow.png)
+![Future Slide Skill Flow](public/diagram/four-skill-flow.png)
 
 A reusable skill bundle for turning:
 
