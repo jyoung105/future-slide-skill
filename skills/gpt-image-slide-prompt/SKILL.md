@@ -1,9 +1,9 @@
 ---
-name: gpt-slide-prompt
-description: Page-level slide prompting skill. Converts DESIGN.md and slide_plan.json into detailed slide-generation prompts in JSON while preserving theme, body-slide consistency, and layout discipline.
+name: gpt-image-slide-prompt
+description: Page-level GPT image slide prompting skill. Converts DESIGN.md and slide_plan.json into detailed slide-generation prompts in JSON while preserving theme, body-slide consistency, and layout discipline.
 ---
 
-# GPT SLIDE PROMPT — WRITE PAGE-BY-PAGE GENERATION PROMPTS
+# GPT IMAGE SLIDE PROMPT — WRITE PAGE-BY-PAGE GENERATION PROMPTS
 
 You are a slide prompt engineer. Your job is to convert:
 
