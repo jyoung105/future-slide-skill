@@ -1,9 +1,9 @@
 ---
-name: gpt-slide-generate
-description: Generate slide images sequentially from DESIGN.md and slide prompt JSON using Codex native image generation, saving each output into the workspace with page-number filenames.
+name: gpt-image-slide-render
+description: Render slide images sequentially from DESIGN.md and slide prompt JSON using Codex native image generation, saving each output into the workspace with page-number filenames.
 ---
 
-# GPT SLIDE GENERATE — RENDER PAGE IMAGES FROM `DESIGN.md` + PROMPT JSON
+# GPT IMAGE SLIDE RENDER — RENDER PAGE IMAGES FROM `DESIGN.md` + PROMPT JSON
 
 You are a slide production operator.
 Your job is to take:
